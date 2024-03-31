@@ -1,11 +1,17 @@
-#include"modules.h"
+#include "modules.h"
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector> //dinamikus memoriafoglalasra jo 
+#include <sstream>
+
 namespace STL {
 
-    //Read functions
-    void read_STL(const std::string& filename, const std::string& mode) {
+    //READ FUNCTIONS
+    std::vector<Facet> read_STL(const std::string& filename, const std::string& mode) {
+
+        std::vector<Facet> facets; //letrehozok egy vektort amibe a facet-ek lesznek ez fog dinimaikusan novekedni
+
         if (mode == "binary")
         {
 
@@ -13,25 +19,55 @@ namespace STL {
         else//Read file in text format
         {
             std::ifstream stl_file(filename);
-            if (!stl_file) {
+            if (!stl_file.is_open()) {
                 std::cerr << "Could not open file " << filename << std::endl;
-                return;
+                return facets;
             }
 
             std::string line;
-            while (std::getline(stl_file, line)) {
-                std::cout << line << std::endl;
+            while (std::getline(stl_file, line)) { // beolvassa az elso sort
+                Vector n;
+                Point verteces[3];
+
+                if (line.find("facet normal") != std::string::npos) {
+                    std::istringstream sin(line.substr(line.find("facet normal") + 12)); // Initialize with the part after "facet normal"
+                    sin >> n; // overloaded >> operator
+                    std::getline(stl_file, line); // Skip "outer loop"
+                    for (int i = 0; i < 3; i++) {
+                        std::getline(stl_file, line); // Read vertex
+                        std::istringstream sin(line.substr(line.find("vertex") + 6)); // Initialize with the part after "facet normal"
+                        sin >> verteces[i];
+                    }
+                    std::getline(stl_file, line); // Skip "endloop"
+                    std::getline(stl_file, line); // Skip "endfacet"
+                    Facet facet(n, verteces[0], verteces[1], verteces[2]);
+                    //facet.print();
+                    facets.push_back(facet);
+                }
+
+
+
             }
 
             stl_file.close();
 
         }
+        return facets;
     }
 
+    //OPERATORS
+    std::istream& operator>>(std::istream& input, Point& p) {
 
+        input >> p.x >> p.y >> p.z; // beolvassa a pontba az ertekeket
+        return input;
+    }
+    std::istream& operator>>(std::istream& input, Vector& v) {
 
+        input >> v.nx >> v.ny >> v.nz; // beolvassa a pontba az ertekeket
+        return input;
+    }
 
-    //Construktorok
+    //CONSTRUCTORS
     Vector::Vector(Vector const& other) {
         this->nx = other.getNx();
         this->ny = other.getNy();
@@ -43,9 +79,7 @@ namespace STL {
         this->z = other.z;
     };
 
-
-    //Setterek
-
+    //SETTERS
     void Line::setPoint_from_array(double t[2][4], const Point& p) {
         //Kivalasztom azt a pontot amihez vezeregyes tartozik a tombben
         if (t[0][0] == 1) {
@@ -99,55 +133,26 @@ namespace STL {
         this->dirv = dirv;
     }
 
-
+    //PRINTS
     void Line::print()const {
         std::cout << "Point: (" << p.getX() << ", " << p.getY() << ", " << p.getZ() << ")" << std::endl;
-        std::cout << "Direction Vector: (" << dirv.getNx() << ", " << dirv.getNy() << ", " << dirv.getNz() << ")" << std::endl;
+        std::cout << "Direction Vector: (" << dirv.getNx() << ", " << dirv.getNy() << ", " << dirv.getNz() << ")" << std::endl << std::endl;
     }
-
     void Point::print()const {
-        std::cout << "Point: (" << getX() << ", " << getY() << ",Konstans:  " << getZ() << ")" << std::endl;
+        std::cout << "Point: (" << getX() << ", " << getY() << ", " << getZ() << ")" << std::endl;
+    }
+    void Vector::print()const {
+        std::cout << "Normal: (" << getNx() << ", " << getNy() << ", " << getNz() << ")" << std::endl;
+    }
+    void Facet::print()const {
+        this->n.print();
+        this->v1.print();
+        this->v2.print();
+        this->v3.print();
+        std::cout << std::endl;
     }
 
-
-
-    // getterek
-
-
-    // Ez a függvény visszaadja a Line objektum normálvektorát.
-    Vector Line::getNormal() const {
-        // A normálvektor a irányvektor x és y komponenseinek felcserélésével és az új x komponens negálásával kapható.
-        return Vector(this->dirv.getNy(), -1 * (this->dirv.getNx()), 0);
-    }
-    //függvenyek
-    Line faceIntersection(Facet const& f1, Cutter const& cutter_plane) {
-
-        Line solution;
-        Vector v = f1.getNormal();
-        Point p0 = f1.getVertex1();
-
-        Point pc = cutter_plane.getPoint();//itt mindig a 3. pontot vesszuk az lesz amit mozgatunk 
-        Vector n = cutter_plane.getNormal();
-
-        double array_to_solve[2][4] = { v.getNx(),v.getNy(), v.getNz(),(p0.getX() * v.getNx()) + (p0.getY() * v.getNy()) + (p0.getZ() * v.getNz()),
-                                      {n.getNx(),n.getNy(), n.getNz(),(pc.getX() * n.getNx()) + (pc.getY() * n.getNy()) + (pc.getZ() * n.getNz())} };
-
-        solve_two_equations(array_to_solve);
-        // Output the array using cout
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 4; j++) {
-                std::cout << array_to_solve[i][j] << " ";
-            }
-            std::cout << std::endl;
-        }
-        solution.setPoint(p0);//a szabad parameter erteket beallitom
-        solution.setPoint_from_array(array_to_solve, p0);// a megoldas pontjat kiszedem a tombbol
-        solution.setDirv(v, n);// a ket vektor kereszt szorzata lesz az iranyvektor
-        return solution;
-
-    }
-
-
+    //FUNCTIONS
     void solve_two_equations(double t[2][4]) {
         // normalizáljuk az első sor első nem nulla elemét
         bool normalized = false; //ha normalizátuk akkor true ra állítjuk 
@@ -223,6 +228,35 @@ namespace STL {
         */
     }
 
+    Line faceIntersection(Facet const& f1, Cutter const& cutter_plane) {
+
+        Line solution;
+        Vector v = f1.getNormal();
+        Point p0 = f1.getVertex1();
+
+        Point pc = cutter_plane.getPoint();//itt mindig a 3. pontot vesszuk az lesz amit mozgatunk 
+        Vector n = cutter_plane.getNormal();
+
+        double array_to_solve[2][4] = { v.getNx(),v.getNy(), v.getNz(),(p0.getX() * v.getNx()) + (p0.getY() * v.getNy()) + (p0.getZ() * v.getNz()),
+                                      {n.getNx(),n.getNy(), n.getNz(),(pc.getX() * n.getNx()) + (pc.getY() * n.getNy()) + (pc.getZ() * n.getNz())} };
+
+        solve_two_equations(array_to_solve);
+        /*
+        // Output the array using cout
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 4; j++) {
+                std::cout << array_to_solve[i][j] << " ";
+            }
+            std::cout << std::endl;
+        }
+        */
+        solution.setPoint(p0);//a szabad parameter erteket beallitom
+        solution.setPoint_from_array(array_to_solve, p0);// a megoldas pontjat kiszedem a tombbol
+        solution.setDirv(v, n);// a ket vektor kereszt szorzata lesz az iranyvektor
+        return solution;
+
+    }
+
     Point lineIntersection(Line const& l1, Line const& l2) {
         Point solution;
         Vector n1 = l1.getNormal();
@@ -242,7 +276,5 @@ namespace STL {
 
         return solution;
     }
-
-
 
 }

@@ -1,13 +1,7 @@
 #include <string>
-
+#include <iostream>
+#include <vector>
 namespace STL {
-
-    //read functions
-
-    void read_STL(const std::string& filename, const std::string& mode);
-
-
-
 
     class Point {
     private:
@@ -28,9 +22,10 @@ namespace STL {
         double getX() const { return x; }
         double getY() const { return y; }
         double getZ() const { return z; }
-
-
         void print()const;
+
+        //operators 
+        friend std::istream& operator>>(std::istream& input, Point& p);
     };
 
     class Vector {
@@ -51,6 +46,24 @@ namespace STL {
         void setNy(double y) { ny = y; }
         void setNz(double z) { nz = z; }
 
+        //operatorok
+        friend std::istream& operator>>(std::istream& input, Vector& v);
+
+        void print()const;
+
+
+    };
+
+    class Cutter {
+    private:
+        Vector n;
+        Point p;
+    public:
+        Cutter(Vector _n, Point _p) : n(_n), p(_p) {};
+        ~Cutter() {};
+
+        Vector getNormal() const { return n; }
+        Point getPoint() const { return p; };
     };
 
     class Line {
@@ -66,7 +79,7 @@ namespace STL {
         void setPoint_from_array(double[2][4], const Point&);
 
         void setDirv(Vector dirv);
-        Vector getNormal()const;//visszadja az egyenes normalvektorat de csak 2D ben mivel a z koordinata mindig 0
+        Vector getNormal() const { return Vector(this->dirv.getNy(), -1 * (this->dirv.getNx()), 0); };
         void setPoint(const Point p0);
         Point getPoint()const { return p; };
 
@@ -76,9 +89,6 @@ namespace STL {
 
     };
 
-
-
-
     class Facet {
     private:
         Vector n;
@@ -87,6 +97,7 @@ namespace STL {
         Point v3;
 
     public:
+        Facet() :n(Vector()), v1(Point()), v2(Point()), v3(Point()) {};
         Facet(Vector n, Point v1, Point v2, Point v3) : n(n), v1(v1), v2(v2), v3(v3) {};
         ~Facet() {};
 
@@ -94,24 +105,16 @@ namespace STL {
         Point getVertex1() const { return v1; }
         Point getVertex2() const { return v2; }
         Point getVertex3() const { return v3; }
+
+
+        void print()const;
     };
 
-
-    class Cutter {
-    private:
-        Vector n;
-        Point p;
-    public:
-        Cutter(Vector _n, Point _p) : n(_n), p(_p) {};
-        ~Cutter() {};
-
-        Vector getNormal() const { return n; }
-        Point getPoint() const { return p; };
-    };
-
-    //Fuggvenyek
-    Line faceIntersection(Facet const& plane, Cutter const& cutter_plane);
+    //Functions
     void solve_two_equations(double[2][4]);
-
+    Line faceIntersection(Facet const& plane, Cutter const& cutter_plane);
     Point lineIntersection(Line const& l1, Line const& l2);
+    std::vector<Facet> read_STL(const std::string& filename, const std::string& mode);
+
+
 };

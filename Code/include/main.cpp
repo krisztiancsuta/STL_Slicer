@@ -5,9 +5,6 @@
 #include <math.h>
 #include "modules.h"
 
-
-
-
 int main(int argc, char const* argv[])
 {
     //sik1
@@ -42,9 +39,11 @@ int main(int argc, char const* argv[])
     STL::Point intP2 = STL::lineIntersection(res2, test);
     intP2.print();
 
-    STL::read_STL("cube_with_normals.stl", "text");
+    std::vector<STL::Facet> facets = STL::read_STL("cube_with_normals.stl", "text");
 
-
+    for (const auto& facet : facets) {
+        facet.print();
+    }
     return 0;
 
 }
