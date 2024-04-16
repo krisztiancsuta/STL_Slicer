@@ -307,7 +307,7 @@ namespace STL {
         this->y = other.y;
         this->z = other.z;
         this->angle = other.angle;
-    };
+    }
 
 
     bool check_ID(const Line& l1, const Line& l2) {
@@ -392,7 +392,7 @@ namespace STL {
     }
     void Line::setPoint(const Point p) {
         this->p = p;
-    };
+    }
     void Line::setDirv(Vector n1, Vector n2) {
         this->dirv = Vector(n1.getNy() * n2.getNz() - n1.getNz() * n2.getNy(),
             n1.getNz() * n2.getNx() - n1.getNx() * n2.getNz(),
@@ -509,7 +509,7 @@ namespace STL {
         Point pc = cutter_plane.getPoint();//itt mindig a 3. pontot vesszuk az lesz amit mozgatunk 
         Vector n = cutter_plane.getNormal();
         if (f1.getMinZ() - pc.getZ() <= epsilon && epsilon <= (f1.getMaxZ() - pc.getZ())) {
-            double array_to_solve[2][4] = { v.getNx(),v.getNy(), v.getNz(),(p0.getX() * v.getNx()) + (p0.getY() * v.getNy()) + (p0.getZ() * v.getNz()),
+            double array_to_solve[2][4] = { { v.getNx(),v.getNy(), v.getNz(),(p0.getX() * v.getNx()) + (p0.getY() * v.getNy()) + (p0.getZ() * v.getNz())},
                                       {n.getNx(),n.getNy(), n.getNz(),(pc.getX() * n.getNx()) + (pc.getY() * n.getNy()) + (pc.getZ() * n.getNz())} };
 
             solve_two_equations(array_to_solve);
@@ -558,11 +558,11 @@ namespace STL {
         double minz = points[offset].getZ();
         for (unsigned i = 0 + offset; i < points.size(); i++)
         {
-            if (points[i].getX() < minx)
+            if (points[i].getX() < minx && points[i].getZ() == minz)
                 minx = points[i].getX();
-            if (points[i].getY() < miny)
+            if (points[i].getY() < miny && points[i].getZ() == minz)
                 miny = points[i].getY();
-            if (points[i].getZ() < minz)
+            if (points[i].getZ() < minz && points[i].getZ() == minz)
                 minz = points[i].getZ();
         }
 

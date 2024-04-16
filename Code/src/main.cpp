@@ -43,7 +43,7 @@ int main(int argc, char const* argv[])
     intP2.print();
     */
 
-    std::vector<STL::Facet> facets = STL::read_STL("gomb.stl", "text");
+    std::vector<STL::Facet> facets = STL::read_STL("kocka.stl", "text");
     STL::generate_Id(facets);
     for (const auto& facet : facets) {
         facet.print();
