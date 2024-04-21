@@ -8,7 +8,7 @@
       "args": [
         "-fcolor-diagnostics",
         "-fansi-escape-codes",
-        "-O2",
+       
         "-g",
         "${fileDirname}/*.cpp",
         "-o",

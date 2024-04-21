@@ -1,9 +1,11 @@
 #include "STLFile.h"
 #include "Facet.h"
+#include "Vector.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>
-std::vector<Facet> read_STL(const std::string& filename, const std::string& mode) {
+
+std::vector<Facet> STLFile::readSTLFile(const std::string& filename, const std::string& mode) {
 
     std::vector<Facet> facets; //letrehozok egy vektort amibe a facet-ek lesznek ez fog dinimaikusan novekedni
 
@@ -15,14 +17,13 @@ std::vector<Facet> read_STL(const std::string& filename, const std::string& mode
     {
         std::ifstream stl_file(filename);
         if (!stl_file.is_open()) {
-            std::cerr << "Could not open file " << filename << std::endl;
+            throw "Cannot open file!";
             return facets;
         }
 
         std::string line;
         while (std::getline(stl_file, line)) { // beolvassa az elso sort
-            Vector n;
-            Point verteces[3];
+            Vector xyz[3];
 
             if (line.find("facet normal") != std::string::npos) {
                 //
@@ -32,22 +33,26 @@ std::vector<Facet> read_STL(const std::string& filename, const std::string& mode
                 for (int i = 0; i < 3; i++) {
                     std::getline(stl_file, line); // Read vertex
                     std::istringstream sin(line.substr(line.find("vertex") + 6)); // Initialize with the part after "facet normal"
-                    sin >> verteces[i];
+                    sin >> xyz[i];
+                    if (xyz[i] < minZ) {
+                        minZ >> xyz[i];//"beletöltöm a Vector >> operatorral a koordinatat"
+                    }
+                    if (xyz[i] > maxZ) {
+                        maxZ >> xyz[i];
+                    }
                 }
                 std::getline(stl_file, line); // Skip "endloop"
                 std::getline(stl_file, line); // Skip "endfacet"
 
-
-                n = determineNormal(verteces[0], verteces[1], verteces[2]);
-                Facet facet(n, verteces[0], verteces[1], verteces[2]);
+                Facet facet(xyz[0], xyz[1], xyz[2]);
 
                 facets.push_back(facet);
             }
-
         }
-
         stl_file.close();
-
     }
     return facets;
 }
+
+double STLFile::minZ = 0;
+double STLFile::maxZ = 0;
