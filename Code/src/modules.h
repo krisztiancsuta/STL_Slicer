@@ -140,11 +140,15 @@ namespace STL {
     };
 
 
-
-    //Functions
+    //Vector
     double dotProduct(Vector v1, Vector v2);
     Vector crossProduct(const Vector& n1, const Vector& n2);
+
+    //Plane
     Vector determineNormal(const Point& p1, const Point& p2, const Point& p3);
+    //Functions
+    
+    
     void solve_two_equations(double[2][4]);
     Line faceIntersection(Facet const& plane, Cutter const& cutter_plane);
     Point lineIntersection(Line const& l1, Line const& l2);
