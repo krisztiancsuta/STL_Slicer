@@ -17,7 +17,7 @@ std::vector<Facet> STLFile::readSTLFile(const std::string& filename, const std::
     {
         std::ifstream stl_file(filename);
         if (!stl_file.is_open()) {
-            throw "Cannot open file!";
+            throw std::runtime_error("Could not open file: " + filename);
             return facets;
         }
 

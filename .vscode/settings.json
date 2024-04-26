@@ -45,7 +45,8 @@
     "tuple": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "version": "cpp"
   },
   "window.zoomLevel": 1,
   "editor.fontSize": 13,

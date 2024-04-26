@@ -1,6 +1,7 @@
 #include "Vector.h"
 #include <cmath>
-
+#include <iostream>
+const double epsilon = 1e-16;
 
 double Vector::getLength() const { return std::sqrt(XYZ[0] * XYZ[0] + XYZ[1] * XYZ[1] + XYZ[2] * XYZ[2]); }
 
@@ -34,6 +35,9 @@ Vector Vector::operator-(const Vector& B) const {
 
     return Vector(XYZ[0] - B.XYZ[0], XYZ[1] - B.XYZ[1], XYZ[2] - B.XYZ[2]);
 }
+Vector Vector::operator+(const Vector& B) const {
+    return Vector(XYZ[0] + B.XYZ[0], XYZ[1] + B.XYZ[1], XYZ[2] + B.XYZ[2]);
+}
 bool Vector::operator<(double& n) const {
     return XYZ[2] < n;
 }
@@ -42,4 +46,15 @@ bool Vector::operator>(double& n) const {
 }
 void operator>>(double& n, Vector const& v) {
     n = v.XYZ[2];
+}
+
+Vector& Vector::operator*(double t) {
+    XYZ[0] *= t;
+    XYZ[1] *= t;
+    XYZ[2] *= t;
+    return *this;
+}
+
+bool Vector::operator==(const Vector& v) const {
+    return (std::abs(v.XYZ[0] - XYZ[0]) < epsilon && std::abs(v.XYZ[1] - XYZ[1]) < epsilon && std::abs(v.XYZ[2] - XYZ[2]) < epsilon);
 }
