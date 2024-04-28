@@ -46,7 +46,9 @@
     "typeinfo": "cpp",
     "variant": "cpp",
     "algorithm": "cpp",
-    "version": "cpp"
+    "version": "cpp",
+    "iterator": "cpp",
+    "memory_resource": "cpp"
   },
   "window.zoomLevel": 1,
   "editor.fontSize": 13,

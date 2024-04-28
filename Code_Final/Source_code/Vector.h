@@ -4,8 +4,8 @@ class Vector
 {
 private:
     double XYZ[3];
-    friend std::ostream& operator<<(std::ostream&, Vector const&);
-    friend std::istream& operator>>(std::istream&, Vector&);
+
+
     friend void operator>>(double&, Vector const&);
 public:
     Vector(double x = 999, double y = 999, double z = 999) {
@@ -18,6 +18,7 @@ public:
     static Vector cross(const Vector&, const Vector&);
 
     void print(std::ostream & = std::cout) const;
+    void read(std::istream & = std::cin);
 
     Vector operator-(const Vector&) const;//kérdés hogy referenciát vagy értéket adjak vissza
     Vector operator+(const Vector&) const;
@@ -25,6 +26,7 @@ public:
     bool operator>(double&)const;
     Vector& operator*(double);
     bool operator==(const Vector&)const;
+
 
 
 

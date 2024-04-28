@@ -1,7 +1,7 @@
 #include "Vector.h"
 #include <cmath>
 #include <iostream>
-const double epsilon = 1e-16;
+const double epsilon = 1e-10;
 
 double Vector::getLength() const { return std::sqrt(XYZ[0] * XYZ[0] + XYZ[1] * XYZ[1] + XYZ[2] * XYZ[2]); }
 
@@ -17,17 +17,25 @@ Vector Vector::cross(const Vector& n1, const Vector& n2) {
 }
 
 void Vector::print(std::ostream& os) const {
-    os << *this;
+    if (&os != &std::cout)// ha fileba akarunk irni mas a formatum
+    {
+        os << " X" << XYZ[0] << " Y" << XYZ[1] << " Z" << XYZ[2];
+    }
+    else
+        os << "Vector(" << XYZ[0] << "," << XYZ[1] << "," << XYZ[2] << ")";
+}
+void Vector::read(std::istream& is) {
+    is >> XYZ[0] >> XYZ[1] >> XYZ[2];
 }
 
 std::ostream& operator<<(std::ostream& os, const Vector& v) {
-    os << "Vector(" << v.XYZ[0] << "," << v.XYZ[1] << "," << v.XYZ[2] << ")";
+    v.print(os);
     return os;
 }
 
 std::istream& operator>>(std::istream& is, Vector& v) {
 
-    is >> v.XYZ[0] >> v.XYZ[1] >> v.XYZ[2]; // beolvassa a pontba az ertekeket
+    v.read(is); // beolvassa a pontba az ertekeket
     return is;
 }
 

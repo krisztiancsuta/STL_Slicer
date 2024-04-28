@@ -10,7 +10,7 @@ private:
     friend std::ostream& operator<<(std::ostream&, const Facet&);
 public:
     Facet(Vector a, Vector b, Vector c) { verteces[0] = a;verteces[1] = b;verteces[2] = c; };
-    Section PlaneIntersection(const Plane&); // kiszamolja egy facet és sík metszésszakaszát
+    Section PlaneIntersection(const Plane&, bool&); // kiszamolja egy facet és sík metszésszakaszát
     void print(std::ostream & = std::cout)const;
 };
 

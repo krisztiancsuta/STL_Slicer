@@ -4,25 +4,27 @@
 #include "Vector.h"
 
 std::ostream& operator<<(std::ostream& os, const Facet& f) {
-    os << "Facet A:" << f.verteces[0] << " ,B:" << f.verteces[1] << " ,C:" << f.verteces[2];
+    f.print(os);
     return os;
 }
 
-Section Facet::PlaneIntersection(const Plane& plane) {
+Section Facet::PlaneIntersection(const Plane& plane, bool& isValidSection) {
     //visszaad egy szakaszt
     Section Sections[3] = { Section(verteces[0], verteces[1]),
                             Section(verteces[0], verteces[2]),
                             Section(verteces[1], verteces[2]) };
     Vector section_points[2];
-    for (unsigned i = 0, j = 0; i < 3; i++)
+    unsigned j = 0;//metszespontokat szamolja
+    for (unsigned i = 0; i < 3; i++)
     {
-        Vector tmp = Sections[i].PlaneInterSection(plane);
-        if (!(tmp == Vector()))
+        bool isValidPoint = true;
+        Vector tmp = Sections[i].PlaneInterSection(plane, isValidPoint);
+        if (isValidPoint)
         {
             if (j == 0) {
                 section_points[j++] = tmp;
             }
-            else {
+            else {// van e mar ugyanolyan pont a szakaszban
                 bool isSimilar = false;
                 for (int k = 0; k < j; k++) {
                     if (tmp == section_points[k]) {
@@ -35,13 +37,13 @@ Section Facet::PlaneIntersection(const Plane& plane) {
                 }
             }
         }
-        if (j == 2) {//mindig pontosan 2 metszespontom lesz ha van megoldas
-            return Section(section_points[0], section_points[1]); // visszaterek a szakasszal
-        }
     }
-    return Section();
+    if (j != 2) {//mindig pontosan 2 metszespontom lesz ha van megoldas
+        isValidSection = false;
+    }
+    return Section(section_points[0], section_points[1]);
 } // kiszamolja egy facet és sík metszésszakaszát
 
 void Facet::print(std::ostream& os)const {
-    os << *this << std::flush;
+    os << "Facet A:" << verteces[0] << " ,B:" << verteces[1] << " ,C:" << verteces[2];
 }
