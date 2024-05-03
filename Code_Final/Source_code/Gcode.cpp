@@ -25,7 +25,7 @@ void Gcode::WriteGcode(std::ofstream& gcode, std::vector<Section>const& sections
 
     for (unsigned i = 0; i < sections.size(); i++)
     {
-        gcode << "G1 F1500" << sections[i] << " E" << i / 10.0 << std::endl;
+        gcode << "G1 F1500" << sections[i] << " E" << (i + 1) << std::endl;
 
     }
 }

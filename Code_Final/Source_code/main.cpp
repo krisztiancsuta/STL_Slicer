@@ -26,7 +26,7 @@ int main() {
 #elif !DEBUG
         // 1) A facetek beolvasása. Bemenet az STL fájl, kimenet Facet-ek vektora.
         // ezután ciklusban
-        std::vector<Facet> facets = STLFile::readSTLFile("gomb.stl", "text");
+        std::vector<Facet> facets = STLFile::readSTLFile("test.stl", "text");
         double max = STLFile::maxZ;
         double min = STLFile::minZ;
         //Főciklus amiben 0.2 mm retegvastagsaggal szeletelunk
@@ -52,25 +52,30 @@ int main() {
 
                 if (isValidSection) {
                     //std::cout << "\t" << facets[j] << std::endl;
-                    std::cout << "\t\t" << tmp << std::endl;
+                    //std::cout << "\t\t" << tmp << std::endl;
                     sections_per_level.push_back(tmp);
                 }
             }
+
+            // 3) (opcionális) szakaszok rendezése optimális bejáráshoz (csak
+            //    gyorsítás, enélkül is nyomtatható)
             Gcode::SortSections(sections_per_level);
+            /*
             for (unsigned i = 0; i < sections_per_level.size(); i++)
             {
                 std::cout << "\t" << sections_per_level[i] << std::endl;
             }
+            */
+
+            // 4) Gcode fájl egy rétegének legyártása
             Gcode::WriteGcode(gcode, sections_per_level);
 
         }
         gcode << stop << std::endl;
 
 
-        // 3) (opcionális) szakaszok rendezése optimális bejáráshoz (csak
-        //    gyorsítás, enélkül is nyomtatható)
 
-        // 4) Gcode fájl egy rétegének legyártása
+
 
 #endif
         return 0;
