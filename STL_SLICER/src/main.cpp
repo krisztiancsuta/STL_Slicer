@@ -1,17 +1,19 @@
-#include"Vector.h"
-#include"Plane.h"
-#include"Section.h"
-#include"STLFile.h"
-#include"Facet.h"
+#include "Vector.h"
+#include "Plane.h"
+#include "Section.h"
+#include "STLFile.h"
+#include "Facet.h"
 #include <iostream>
-#include<vector>
+#include <vector>
 #include "Gcode.h"
 #include <fstream>
 
-#define DEBUG false 
-int main() {
+#define DEBUG false
+int main()
+{
 
-    try {
+    try
+    {
 #if DEBUG
         Vector v1(1, 0, 0);
         Vector v2(2, 1, 0);
@@ -29,7 +31,7 @@ int main() {
         std::vector<Facet> facets = STLFile::readSTLFile("yoda.stl", "text");
         double max = STLFile::maxZ;
         double min = STLFile::minZ;
-        //Főciklus amiben 0.2 mm retegvastagsaggal szeletelunk
+        // Főciklus amiben 0.2 mm retegvastagsaggal szeletelunk
 
         std::ofstream gcode("Generated.gcode");
         if (gcode.fail())
@@ -43,16 +45,18 @@ int main() {
             Plane cutter(Vector(0, 0, i), Vector(0, 0, 1));
             std::vector<Section> sections_per_level;
             std::cout << "Level " << i << " mm" << std::endl;
-            for (unsigned j = 0; j < facets.size(); j++) {
+            for (unsigned j = 0; j < facets.size(); j++)
+            {
                 bool isValidSection = true;
                 // 2) szakaszok legyártása (nem egyenesek, szakaszok). Bementek:
                 //    Facet-ek vektora, vágó sík. Kimenet: szakaszok vektora.
 
                 Section tmp = facets[j].PlaneIntersection(cutter, isValidSection);
 
-                if (isValidSection) {
-                    //std::cout << "\t" << facets[j] << std::endl;
-                    //std::cout << "\t\t" << tmp << std::endl;
+                if (isValidSection)
+                {
+                    // std::cout << "\t" << facets[j] << std::endl;
+                    // std::cout << "\t\t" << tmp << std::endl;
                     sections_per_level.push_back(tmp);
                 }
             }
@@ -69,19 +73,15 @@ int main() {
 
             // 4) Gcode fájl egy rétegének legyártása
             Gcode::WriteGcode(gcode, sections_per_level);
-
         }
         gcode << stop << std::endl;
-
 
         getchar();
 #endif
         return 0;
     }
-    catch (const std::exception& exc) {
+    catch (const std::exception& exc)
+    {
         std::cerr << "Caught exception: " << exc.what() << '\n';
     }
-
-
 }
-

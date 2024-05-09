@@ -46,7 +46,7 @@ $(DEPS): ;
 # Ez a szabály arra jó, hogy ha beírom a parancssorba, hogy make clean (windowson mingw32-make clean), akkor letöröl minden gépi kódot és függőségi fájlt. Linuxon rm -rf obj/* bin/*
 .PHONY: clean
 clean:
-	 rm -r obj/* bin/*
+	rm -r obj/* bin/*
 
 # Ez a szabály arra jó, hogy ha beírom a parancssorba, hogy make doc (windowson mingw32-make doc), akkor futtatja a doxygent.
 .PHONY: doc
