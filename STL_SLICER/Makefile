@@ -29,14 +29,14 @@ DEPS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.d)
 
 # A célprogram minden objecttől függ. A fordítási szabály egyszerű.
 $(BINDIR)/$(TARGET): $(OBJECTS)
-	$(CXX) -o $@ $(OBJECTS) $(LDFLAGS) 
+	$(CXX) -O2 -o $@ $(OBJECTS) $(LDFLAGS) 
 
 # Minden .o fájl függ az azonos nevű .cpp-től. A fordítási szabály egyszerű.
 # A -MMD kapcsoló magyarázata: A fordító ezzel minden .cpp fájlból készít egy .d fájlt is, mely a .cpp fájl összes include függőségét tartalmazza. Ha pl a csucsu.cpp include-olja a csucsu.h-t, a csucsu.h pedig include-olja a bubu.h-t, akkor a fordító készít egy csucsu.d-t, melynek tartalma:
 # csucsu.o: csucsu.cpp csucsu.h bubu.h
 # Ez azért fontos, mert ha módosítom a bubu.h-t, akkor a csucsu.o-t újra kell fordítani.
 $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
-	$(CXX) -c -o $@ $(CXXFLAGS) $(INCFLAGS) -MMD $< 
+	$(CXX) -c -O2 -o $@ $(CXXFLAGS) $(INCFLAGS) -MMD $< 
 
 # Itt beillesztjük a Makefile-ba a fordító által legyártott összes (.d) header-függőségi szabályt is
 include $(DEPS)

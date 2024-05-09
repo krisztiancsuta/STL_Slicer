@@ -5,9 +5,15 @@
 #include <sstream>
 #include <iostream>
 
+/**
+ * @brief Reads an STL file and returns a vector of facets.
+ *
+ * @param filename The name of the STL file to read.
+ * @return std::vector<Facet> A vector containing the facets read from the file.
+ */
 std::vector<Facet> STLFile::readSTLFile(const std::string& filename) {
 
-    std::vector<Facet> facets; //letrehozok egy vektort amibe a facet-ek lesznek ez fog dinimaikusan novekedni
+    std::vector<Facet> facets; // Create a vector to store the facets (this will dynamically grow)
 
     if (isBinarySTL(filename))
     {
@@ -62,7 +68,7 @@ std::vector<Facet> STLFile::readSTLFile(const std::string& filename) {
         }
 
         std::string line;
-        while (std::getline(stl_file, line)) { // beolvassa az elso sort
+        while (std::getline(stl_file, line)) { // Read each line
             Vector xyz[3];
 
             if (line.find("facet normal") != std::string::npos) {
@@ -94,8 +100,12 @@ std::vector<Facet> STLFile::readSTLFile(const std::string& filename) {
     return facets;
 }
 
-
-
+/**
+ * @brief Checks if an STL file is in binary format.
+ *
+ * @param filename The name of the STL file to check.
+ * @return true if the file is in binary format, false otherwise.
+ */
 bool STLFile::isBinarySTL(const std::string& filename) {
     std::ifstream file(filename, std::ios::in | std::ios::binary);
 
@@ -108,5 +118,6 @@ bool STLFile::isBinarySTL(const std::string& filename) {
 
     return std::string(header, 6) != "solid "; // Check if stl file is in binary mode 
 }
+
 double STLFile::minZ = 0;
 double STLFile::maxZ = 0;
