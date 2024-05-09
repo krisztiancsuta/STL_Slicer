@@ -5,11 +5,11 @@
 #include <sstream>
 #include <iostream>
 
-std::vector<Facet> STLFile::readSTLFile(const std::string& filename, const std::string& mode) {
+std::vector<Facet> STLFile::readSTLFile(const std::string& filename) {
 
     std::vector<Facet> facets; //letrehozok egy vektort amibe a facet-ek lesznek ez fog dinimaikusan novekedni
 
-    if (mode == "binary")
+    if (isBinarySTL(filename))
     {
         std::ifstream stl_file(filename, std::ios::binary);
         if (!stl_file.is_open()) {
@@ -94,5 +94,19 @@ std::vector<Facet> STLFile::readSTLFile(const std::string& filename, const std::
     return facets;
 }
 
+
+
+bool STLFile::isBinarySTL(const std::string& filename) {
+    std::ifstream file(filename, std::ios::in | std::ios::binary);
+
+    if (!file) {
+        throw std::runtime_error("Could not open file: " + filename);
+    }
+
+    char header[6];
+    file.read(header, 6);
+
+    return std::string(header, 6) != "solid "; // Check if stl file is in binary mode 
+}
 double STLFile::minZ = 0;
 double STLFile::maxZ = 0;
