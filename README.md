@@ -29,7 +29,6 @@ To slice the body, we create a Plane slicing plane, which we increase in height 
 
 The intersection point of the sides with the plane, its existence, is described by a simple single-variable equation system:
 
-```math
-((v1 + t * (v2-v1)) - p0) .dot (n) = 0
+```math ((v1 + t * (v2-v1)) - p0) .dot (n) = 0```
 
-From this point on, using the interpretation of the source code, we determine the necessary segments and points with simple vector operations.
+From this point forward, we leverage the interpretation of the source code to identify the required segments and points. This is achieved through straightforward vector operations such as cross and dot products, as well as subtraction and addition operations.
