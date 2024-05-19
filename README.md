@@ -16,7 +16,6 @@ A program outputja egy <filename>.gcode kimeneti file, amit szintén a /stl_test
 Az output vizualizására a legegyszerűbb megoldás a CURA Slicerrel való megnyitás.
 A bintest.gcode outputja:
 ![Alt text](Doxygen/bintest_cura.png)
-![Bintest Cura Image](Doxygen/bintest_cura.png)
 
 
 
