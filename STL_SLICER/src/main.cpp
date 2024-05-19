@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
         std::vector<Facet> facets = STLFile::readSTLFile(argv[1]);
         double max = STLFile::maxZ;
         double min = STLFile::minZ;
-        // Main loop for slicing with a layer thickness of 0.2 mm
+        
         std::string filename = std::string(argv[1]);
         size_t dotPos = filename.find_last_of(".");
         if (dotPos != std::string::npos) {

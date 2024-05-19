@@ -19,3 +19,17 @@ The program outputs a `<filename>.gcode` file, which it places in the `/stl_test
 The easiest way to visualize the output is to open it with CURA Slicer. Here's the output of `bintest.gcode`:
 
 ![Alt text](Doxygen/bintest_cura.png)
+
+
+## How it works
+
+First, we need to read the `.stl` file. We determine whether it's in ASCII or binary format by reading the first few bytes. Then, we create a vector of Facets, which will contain all the sides of the body as a set of 3 angles.
+
+To slice the body, we create a Plane slicing plane, which we increase in height according to the layer thickness. In each cycle, we determine the intersection points of the sides (triangles) with the plane, which will define sections (vectors). These vectors define the path to be traversed at each level. To optimally traverse the path, we chain the vectors one after the other to form a continuous, non-jumping track.
+
+The intersection point of the sides with the plane, its existence, is described by a simple single-variable equation system:
+
+```math
+((v1 + t * (v2-v1)) - p0) .dot (n) = 0
+
+From this point on, using the interpretation of the source code, we determine the necessary segments and points with simple vector operations.
