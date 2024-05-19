@@ -1,0 +1,33 @@
+\chapter{STL\+\_\+\+Slicer}
+\hypertarget{index}{}\label{index}\index{STL\_Slicer@{STL\_Slicer}}
+STL\+\_\+\+Slicer is a simple slicing program for 3D printing. It generates printable {\ttfamily .gcode} files from any {\ttfamily .stl} files.\hypertarget{index_usage}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_usage}
+First, build the project using the {\ttfamily mingw32-\/make} command. The executable {\ttfamily .exe} file can be found in the {\ttfamily /bin} directory.
+
+To run the program, execute the {\ttfamily ./main.exe} file. The format of the parameter list is demonstrated with an example. It\textquotesingle{}s recommended to copy the full path from the {\ttfamily /stl\+\_\+testfiles} directory as a parameter to ensure the program finds the test file.
+
+The optimal slicing thickness ranges between 0.\+2 and 0.\+35 mm. You can also try extreme cases like 1 or 0.\+001 mm, but in these cases, the program\textquotesingle{}s runtime may significantly increase or the output file\textquotesingle{}s resolution may degrade.
+
+The program determines its progress based on an iterating variable in a "{}for"{} loop.
+
+The program outputs a {\ttfamily \texorpdfstring{$<$}{<}filename\texorpdfstring{$>$}{>}.gcode} file, which it places in the {\ttfamily /stl\+\_\+testfiles} directory.\hypertarget{index_visualization}{}\doxysection{\texorpdfstring{Visualization}{Visualization}}\label{index_visualization}
+The easiest way to visualize the output is to open it with CURA Slicer. Here\textquotesingle{}s the output of {\ttfamily bintest.\+gcode}\+:
+
+\hypertarget{index_how_it_works}{}\doxysection{\texorpdfstring{How it works}{How it works}}\label{index_how_it_works}
+First, we need to read the {\ttfamily .stl} file. We determine whether it\textquotesingle{}s in ASCII or binary format by reading the first few bytes. Then, we create a vector of Facets, which will contain all the sides of the body as a set of 3 angles.
+
+To slice the body, we create a \doxylink{class_plane}{Plane} slicing plane, which we increase in height according to the layer thickness. In each cycle, we determine the intersection points of the sides (triangles) with the plane, which will define sections (vectors). These vectors define the path to be traversed at each level. To optimally traverse the path, we chain the vectors one after the other to form a continuous, non-\/jumping track.
+
+The intersection point of the sides with the plane, its existence, is described by a simple single-\/variable equation system\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((v1\ +\ t\ *\ (v2-\/v1))\ -\/\ p0)\ .dot\ (n)\ =\ 0}
+
+\end{DoxyCode}
+
+
+Here\textquotesingle{}s a breakdown of the formula\+:
+
+v1 and v2 are vectors representing two points on the line. t is a scalar that we\textquotesingle{}re solving for. It represents how far along the line the intersection point is. p0 is a point on the plane. n is the normal vector of the plane. The .dot operation represents the dot product, a fundamental operation in vector algebra.
+
+From this point forward, we leverage the interpretation of the source code to identify the required segments and points. This is achieved through straightforward vector operations such as cross and dot products, as well as subtraction and addition operations. \texorpdfstring{$\ast$}{*}/ 

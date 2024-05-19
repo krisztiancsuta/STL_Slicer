@@ -1,0 +1,176 @@
+\doxysection{Section Class Reference}
+\hypertarget{class_section}{}\label{class_section}\index{Section@{Section}}
+
+
+Represents a section defined by two vectors.  
+
+
+
+
+{\ttfamily \#include $<$Section.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_section_a418187f0b089f2971a3b259cc1d36f8c}{Section}} (\mbox{\hyperlink{class_vector}{Vector}} v1=\mbox{\hyperlink{class_vector}{Vector}}(), \mbox{\hyperlink{class_vector}{Vector}} v2=\mbox{\hyperlink{class_vector}{Vector}}())
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_section}{Section}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_section_a835a554a53f6b51ef859a2b82c81aa87}{Plane\+Inter\+Section}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane, bool \&is\+Valid\+Point) const
+\begin{DoxyCompactList}\small\item\em Calculates the intersection point between the section and a plane. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_section_aed7c36f2014294f96a7e3045b1216476}{print}} (std\+::ostream \&os=std\+::cout) const
+\begin{DoxyCompactList}\small\item\em Prints the section to the specified output stream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_section_aa047eb2f2ca15c8be94d327604169e0d}{operator==}} (const \mbox{\hyperlink{class_section}{Section}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if two sections are equal. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_section_ab0d638c91e4f32fcc7d7505d77f9892c}{operator$<$$<$=}} (\mbox{\hyperlink{class_section}{Section}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the two vectors connect and have the same direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a section defined by two vectors. 
+
+Definition at line \mbox{\hyperlink{_section_8h_source_l00009}{9}} of file \mbox{\hyperlink{_section_8h_source}{Section.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_section_a418187f0b089f2971a3b259cc1d36f8c}\label{class_section_a418187f0b089f2971a3b259cc1d36f8c} 
+\index{Section@{Section}!Section@{Section}}
+\index{Section@{Section}!Section@{Section}}
+\doxysubsubsection{\texorpdfstring{Section()}{Section()}}
+{\footnotesize\ttfamily Section\+::\+Section (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}}]{v1 = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}()},  }\item[{\mbox{\hyperlink{class_vector}{Vector}}}]{v2 = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}()} }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \doxylink{class_section}{Section}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & The first vector of the section. \\
+\hline
+{\em v2} & The second vector of the section. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_section_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_section_ab0d638c91e4f32fcc7d7505d77f9892c}\label{class_section_ab0d638c91e4f32fcc7d7505d77f9892c} 
+\index{Section@{Section}!operator$<$$<$=@{operator$<$$<$=}}
+\index{operator$<$$<$=@{operator$<$$<$=}!Section@{Section}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$=()}{operator<<=()}}
+{\footnotesize\ttfamily bool Section\+::operator$<$$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_section}{Section}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the two vectors connect and have the same direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other section to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the endpoint of the first vector is equal to the starting point of the second vector. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_section_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
+
+\Hypertarget{class_section_aa047eb2f2ca15c8be94d327604169e0d}\label{class_section_aa047eb2f2ca15c8be94d327604169e0d} 
+\index{Section@{Section}!operator==@{operator==}}
+\index{operator==@{operator==}!Section@{Section}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Section\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_section}{Section}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Checks if two sections are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other section to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sections are equal, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_section_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
+
+\Hypertarget{class_section_a835a554a53f6b51ef859a2b82c81aa87}\label{class_section_a835a554a53f6b51ef859a2b82c81aa87} 
+\index{Section@{Section}!PlaneInterSection@{PlaneInterSection}}
+\index{PlaneInterSection@{PlaneInterSection}!Section@{Section}}
+\doxysubsubsection{\texorpdfstring{PlaneInterSection()}{PlaneInterSection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Section\+::\+Plane\+Inter\+Section (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane,  }\item[{bool \&}]{is\+Valid\+Point }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the intersection point between the section and a plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plane} & The plane to intersect with. \\
+\hline
+{\em success} & Indicates if the intersection was successful. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The intersection point as a \doxylink{class_vector}{Vector}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_section_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00021}{Vector\+::dot()}}, \mbox{\hyperlink{_plane_8h_source_l00031}{Plane\+::get\+Normal()}}, and \mbox{\hyperlink{_plane_8h_source_l00025}{Plane\+::get\+Ref()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_section_a835a554a53f6b51ef859a2b82c81aa87_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_section_a835a554a53f6b51ef859a2b82c81aa87_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_section_aed7c36f2014294f96a7e3045b1216476}\label{class_section_aed7c36f2014294f96a7e3045b1216476} 
+\index{Section@{Section}!print@{print}}
+\index{print@{print}!Section@{Section}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Section\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption}) const}
+
+
+
+Prints the section to the specified output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to print to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_section_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_section_aed7c36f2014294f96a7e3045b1216476_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_section_8h}{Section.\+h}}\item 
+C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_section_8cpp}{Section.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,158 @@
+\doxysection{C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\+Vector.h File Reference}
+\hypertarget{_vector_8h}{}\label{_vector_8h}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/include/Vector.h@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/include/Vector.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for Vector.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{_vector_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_vector_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_vector}{Vector}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{class_vector}{Vector} class represents a 3D vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{_vector_8h_a50f57860275ff6d44dd00d3da3cb5dee}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_vector}{Vector}} const \&v)
+\begin{DoxyCompactList}\small\item\em Prints out a \doxylink{class_vector}{Vector} to the output stream. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{_vector_8h_a753622da3b06ec980be211efe6c5e3f1}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Reads a \doxylink{class_vector}{Vector} from input stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_vector_8h_a98827a80896b9d39b84000a446f4d7cc}{operator$>$$>$}} (double \&d, \mbox{\hyperlink{class_vector}{Vector}} const \&v)
+\begin{DoxyCompactList}\small\item\em Streams the Z coordinate into the double. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_vector_8h_a50f57860275ff6d44dd00d3da3cb5dee}\label{_vector_8h_a50f57860275ff6d44dd00d3da3cb5dee} 
+\index{Vector.h@{Vector.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vector.h@{Vector.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Prints out a \doxylink{class_vector}{Vector} to the output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+{\em v} & The \doxylink{class_vector}{Vector} to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream.
+\end{DoxyReturn}
+Prints out a \doxylink{class_vector}{Vector} to the output stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+{\em v} & The vector to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00041}{Vector\+::print()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{_vector_8h_a50f57860275ff6d44dd00d3da3cb5dee_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_vector_8h_a98827a80896b9d39b84000a446f4d7cc}\label{_vector_8h_a98827a80896b9d39b84000a446f4d7cc} 
+\index{Vector.h@{Vector.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vector.h@{Vector.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void operator$>$$>$ (\begin{DoxyParamCaption}\item[{double \&}]{n,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} const \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Streams the Z coordinate into the double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The double to store the Z coordinate. \\
+\hline
+{\em v} & The \doxylink{class_vector}{Vector} to extract the Z coordinate from.\\
+\hline
+\end{DoxyParams}
+Streams the Z coordinate into the double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The double variable to be assigned. \\
+\hline
+{\em v} & The vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{_vector_8h_a753622da3b06ec980be211efe6c5e3f1}\label{_vector_8h_a753622da3b06ec980be211efe6c5e3f1} 
+\index{Vector.h@{Vector.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vector.h@{Vector.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Reads a \doxylink{class_vector}{Vector} from input stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream. \\
+\hline
+{\em v} & The \doxylink{class_vector}{Vector} to read into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input stream.
+\end{DoxyReturn}
+Reads a \doxylink{class_vector}{Vector} from input stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream. \\
+\hline
+{\em v} & The vector to be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input stream. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00055}{Vector\+::read()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{_vector_8h_a753622da3b06ec980be211efe6c5e3f1_cgraph}
+\end{center}
+\end{figure}

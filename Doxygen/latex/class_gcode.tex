@@ -1,0 +1,88 @@
+\doxysection{Gcode Class Reference}
+\hypertarget{class_gcode}{}\label{class_gcode}\index{Gcode@{Gcode}}
+
+
+The \doxylink{class_gcode}{Gcode} class provides functions for generating G-\/code instructions.  
+
+
+
+
+{\ttfamily \#include $<$Gcode.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}{Write\+Gcode}} (std\+::ofstream \&ofs, std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ const \&sections)
+\begin{DoxyCompactList}\small\item\em Writes one layer of the sliced 3D model into gcode. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}{Sort\+Sections}} (std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ \&sections)
+\begin{DoxyCompactList}\small\item\em Sorts the sections in order to create a continuous path for the printer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_gcode}{Gcode} class provides functions for generating G-\/code instructions. 
+
+Definition at line \mbox{\hyperlink{_gcode_8h_source_l00012}{12}} of file \mbox{\hyperlink{_gcode_8h_source}{Gcode.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}\label{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb} 
+\index{Gcode@{Gcode}!SortSections@{SortSections}}
+\index{SortSections@{SortSections}!Gcode@{Gcode}}
+\doxysubsubsection{\texorpdfstring{SortSections()}{SortSections()}}
+{\footnotesize\ttfamily void Gcode\+::\+Sort\+Sections (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ \&}]{sections }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sorts the sections in order to create a continuous path for the printer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sections} & The vector of sections to be sorted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_gcode_8cpp_source}{Gcode.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}\label{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a} 
+\index{Gcode@{Gcode}!WriteGcode@{WriteGcode}}
+\index{WriteGcode@{WriteGcode}!Gcode@{Gcode}}
+\doxysubsubsection{\texorpdfstring{WriteGcode()}{WriteGcode()}}
+{\footnotesize\ttfamily void Gcode\+::\+Write\+Gcode (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ const \&}]{sections }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Writes one layer of the sliced 3D model into gcode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & The output stream to write the G-\/code to. \\
+\hline
+{\em sections} & The vector of sections to generate G-\/code from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_gcode_8cpp_source}{Gcode.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_gcode_8h}{Gcode.\+h}}\item 
+C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_gcode_8cpp}{Gcode.\+cpp}}\end{DoxyCompactItemize}

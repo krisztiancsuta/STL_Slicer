@@ -1,0 +1,25 @@
+\doxysection{Facet.\+h}
+\hypertarget{_facet_8h_source}{}\label{_facet_8h_source}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/include/Facet.h@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/include/Facet.h}}
+\mbox{\hyperlink{_facet_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector_8h}{Vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plane_8h}{Plane.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_section_8h}{Section.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00014}\mbox{\hyperlink{class_facet}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_facet}{Facet}}}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00016}00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ verteces[3];\ \textcolor{comment}{//\ Array\ to\ store\ the\ vertices\ of\ the\ facet\ (v1,\ v2,\ v3\ in\ right\ hand\ rule\ order).}}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_facet_a258599c44ba76ca13ba101b62f92f56a}{operator<<}}(std::ostream\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_facet}{Facet}}\&);}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00027}\mbox{\hyperlink{class_facet_a3875aac61d3d05b8482150e79c1f213f}{00027}}\ \ \ \ \ \mbox{\hyperlink{class_facet_a3875aac61d3d05b8482150e79c1f213f}{Facet}}(\mbox{\hyperlink{class_vector}{Vector}}\ a,\ \mbox{\hyperlink{class_vector}{Vector}}\ b,\ \mbox{\hyperlink{class_vector}{Vector}}\ c)\ \{\ verteces[0]\ =\ a;\ verteces[1]\ =\ b;\ verteces[2]\ =\ c;\ \};}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}\ \mbox{\hyperlink{class_facet_a06878114e2ec85eaeeeb0e0589f6e203}{PlaneIntersection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_plane}{Plane}}\&\ plane,\ \textcolor{keywordtype}{bool}\&\ intersectionExists);}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_facet_a121d9745dcfcdd013e7e85200bd416f7}{print}}(std::ostream\&\ os\ =\ std::cout)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_facet_8h_source_l00042}00042\ \};}
+
+\end{DoxyCode}

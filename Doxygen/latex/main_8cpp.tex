@@ -1,0 +1,80 @@
+\doxysection{C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/main.cpp@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/main.cpp}}
+{\ttfamily \#include "{}Vector.\+h"{}}\newline
+{\ttfamily \#include "{}Plane.\+h"{}}\newline
+{\ttfamily \#include "{}Section.\+h"{}}\newline
+{\ttfamily \#include "{}STLFile.\+h"{}}\newline
+{\ttfamily \#include "{}Facet.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}Gcode.\+h"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}{DEBUG}}~false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em The main function of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}\label{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83} 
+\index{main.cpp@{main.cpp}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define DEBUG~false}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+The main function of the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command-\/line arguments. \\
+\hline
+{\em argv} & An array of command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The exit status of the program. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00031}{Vector\+::cross()}}, \mbox{\hyperlink{_vector_8cpp_source_l00021}{Vector\+::dot()}}, \mbox{\hyperlink{_vector_8cpp_source_l00011}{Vector\+::get\+Length()}}, \mbox{\hyperlink{_s_t_l_file_8h_source_l00014}{STLFile\+::maxZ}}, \mbox{\hyperlink{_s_t_l_file_8h_source_l00013}{STLFile\+::minZ}}, \mbox{\hyperlink{_section_8cpp_source_l00007}{Section\+::\+Plane\+Inter\+Section()}}, \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{STLFile\+::read\+STLFile()}}, \mbox{\hyperlink{_gcode_8cpp_source_l00008}{Gcode\+::\+Sort\+Sections()}}, and \mbox{\hyperlink{_gcode_8cpp_source_l00021}{Gcode\+::\+Write\+Gcode()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,117 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/main.cpp@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector_8h}{Vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_plane_8h}{Plane.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_section_8h}{Section.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_s_t_l_file_8h}{STLFile.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_facet_8h}{Facet.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gcode_8h}{Gcode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}\mbox{\hyperlink{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}{00012}}\ \textcolor{preprocessor}{\#define\ DEBUG\ false}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}\mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00021}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ <filename>\ <layer\ resolution>\ (in\ mm)\(\backslash\)n\ Example:\ ./main\ test.stl\ 0.2"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ layerres\ =\ std::stod(argv[2]);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#if\ DEBUG}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ v1(1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ v2(2,\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_vector_adde9f0c3b971af3446d7414a0463a01f}{Vector::dot}}(v1,\ v2)\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}{Vector::cross}}(v1,\ v2)\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ std::cout\ <<\ v2\ -\/\ v1\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ std::cout\ <<\ v1.\mbox{\hyperlink{class_vector_a60195b4feaa74f1578c0f4f984dce081}{getLength}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plane}{Plane}}\ cutter(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}\ szakasz(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 2));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ p\ =\ szakasz.\mbox{\hyperlink{class_section_a835a554a53f6b51ef859a2b82c81aa87}{PlaneInterSection}}(cutter);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \textcolor{preprocessor}{\#elif\ !DEBUG}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1)\ Read\ facets\ from\ an\ STL\ file.\ Input:\ STL\ file,\ Output:\ vector\ of\ Facets.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ Then\ in\ a\ loop:}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ std::vector<Facet>\ facets\ =\ \mbox{\hyperlink{class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b}{STLFile::readSTLFile}}(argv[1]);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\ =\ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{STLFile::maxZ}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min\ =\ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{STLFile::minZ}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ std::string\ filename\ =\ std::string(argv[1]);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ dotPos\ =\ filename.find\_last\_of(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dotPos\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ filename.substr(0,\ dotPos);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}.gcode"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ gcode\ and\ write\ starting\ lines\ into\ it.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ std::ofstream\ gcode(filename);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gcode.fail())}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Error\ writing\ file:\ "{}}\ +\ filename\ +\ \textcolor{stringliteral}{"{}.gcode"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ std::string\ start\ =\ \textcolor{stringliteral}{"{}G28;Home\(\backslash\)nG1\ Z20\ F6000;Move\ the\ platform\ down\ 20mm\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ std::string\ stop\ =\ \textcolor{stringliteral}{"{}G28\ X0\ Y0;"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ gcode\ <<\ start\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{double}\ i\ =\ min;\ i\ <=\ max;\ i\ =\ i\ +\ layerres)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plane}{Plane}}\ cutter(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ i),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Section>\ sections\_per\_level;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}clear"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Slicing:\ "{}}\ <<\ argv[1]\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Progress\ "{}}\ <<\ std::ceil((i\ /\ max)\ *\ 100)\ <<\ \textcolor{stringliteral}{"{}\%"{}}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2)\ Generate\ sections\ (not\ straight\ lines,\ but\ sections)\ from\ facets\ and\ cutting\ plane.\ Inputs:}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ vector\ of\ Facets,\ cutting\ plane.\ Output:\ vector\ of\ Sections.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ j\ =\ 0;\ j\ <\ facets.size();\ j++)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidSection\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}\ tmp\ =\ facets[j].PlaneIntersection(cutter,\ isValidSection);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isValidSection)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\(\backslash\)t"{}\ <<\ facets[j]\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\(\backslash\)t\(\backslash\)t"{}\ <<\ tmp\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sections\_per\_level.push\_back(tmp);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3)Sort\ sections\ for\ optimal\ traversal\ (only\ for\ speed,\ it\ is\ printable\ without\ sorting)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}{Gcode::SortSections}}(sections\_per\_level);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (unsigned\ i\ =\ 0;\ i\ <\ sections\_per\_level.size();\ i++)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}\(\backslash\)t"{}\ <<\ sections\_per\_level[i]\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4)\ Generate\ gcode\ for\ one\ layer}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}{Gcode::WriteGcode}}(gcode,\ sections\_per\_level);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ gcode\ <<\ stop\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::invalid\_argument\&\ ia)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Invalid\ argument\ please\ enter\ a\ valid\ double\ value!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ <filename>\ <layer\ resolution>\ (in\ mm)"{}}\ <<\ std::endl\ <<\ \textcolor{stringliteral}{"{}Example:\ ./main\ test.stl\ 0.2"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ exc)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Caught\ exception:\ "{}}\ <<\ exc.what()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118\ \}}
+
+\end{DoxyCode}

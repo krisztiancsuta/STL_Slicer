@@ -1,0 +1,9 @@
+<map id="Vector::read" name="Vector::read">
+<area shape="rect" id="Node000001" title="Reads a Vector from input stream." alt="" coords="293,31,385,57"/>
+<area shape="rect" id="Node000002" href="$_vector_8cpp.html#a753622da3b06ec980be211efe6c5e3f1" title="Reads a Vector from input stream." alt="" coords="132,5,216,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,37,216,28,217,22,278,32"/>
+<area shape="rect" id="Node000003" href="$class_s_t_l_file.html#a459673a6261deda3fc8b820d03a7570b" title="Reads the STL file in binary or text format." alt="" coords="103,56,245,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,56,246,61,245,56,277,51"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function of the program." alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,72,55,72,55,67,87,67"/>
+</map>

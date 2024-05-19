@@ -1,0 +1,9 @@
+<map id="STLFile::readSTLFile" name="STLFile::readSTLFile">
+<area shape="rect" id="Node000001" title="Reads the STL file in binary or text format." alt="" coords="5,56,148,83"/>
+<area shape="rect" id="Node000002" href="$class_vector.html#ad90e14b6e298f246cb7a46e8a3aef6e2" title="Converts the coordinates from float array to double." alt="" coords="213,5,322,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,53,199,34,200,39,130,58"/>
+<area shape="rect" id="Node000003" href="$class_s_t_l_file.html#a70051ce594359a89af68af24680dbd26" title="Checks if the file is in binary STL format." alt="" coords="196,56,339,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,67,180,67,180,72,148,72"/>
+<area shape="rect" id="Node000004" href="$class_vector.html#a61fa9ad2db52723de0ee34ecbbe83724" title="Reads a Vector from input stream." alt="" coords="221,107,314,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,81,207,101,205,106,129,86"/>
+</map>

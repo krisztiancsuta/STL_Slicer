@@ -1,0 +1,15 @@
+<map id="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/Facet.h" name="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/Facet.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,180,64"/>
+<area shape="rect" id="Node000002" href="$_vector_8h.html" title=" " alt="" coords="88,261,158,288"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,65,64,97,52,134,48,174,50,194,56,212,71,233,90,250,86,254,67,237,51,215,45,195,42,174,47,133,59,95,73,63"/>
+<area shape="rect" id="Node000004" href="$_plane_8h.html" title=" " alt="" coords="65,187,131,213"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="96,64,100,171,94,171,91,64"/>
+<area shape="rect" id="Node000005" href="$_section_8h.html" title=" " alt="" coords="130,112,207,139"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="119,63,150,98,146,102,115,66"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="124,336,195,363"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="132,287,149,321,144,323,127,290"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="105,213,116,246,111,247,100,215"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="168,140,146,214,135,248,130,246,141,213,162,138"/>
+<area shape="poly" id="edge8_Node000005_Node000003" title=" " alt="" coords="172,139,175,203,172,288,168,321,162,320,167,288,169,203,167,139"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="158,141,122,177,119,174,154,137"/>
+</map>

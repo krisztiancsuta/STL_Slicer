@@ -1,0 +1,5 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="Node000001" title="Overloads the &lt;&lt; operator to print the section to the specified output stream." alt="" coords="5,5,90,32"/>
+<area shape="rect" id="Node000002" href="$class_section.html#aed7c36f2014294f96a7e3045b1216476" title="Prints the section to the specified output stream." alt="" coords="138,5,236,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,16,122,16,122,21,90,21"/>
+</map>

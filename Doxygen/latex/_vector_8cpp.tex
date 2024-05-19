@@ -1,0 +1,139 @@
+\doxysection{C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\+Vector.cpp File Reference}
+\hypertarget{_vector_8cpp}{}\label{_vector_8cpp}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/Vector.cpp@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/Vector.cpp}}
+{\ttfamily \#include "{}Vector.\+h"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for Vector.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{_vector_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{_vector_8cpp_a6a24a145e613478bdecbfa3c46072700}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator to print the vector. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{_vector_8cpp_a753622da3b06ec980be211efe6c5e3f1}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Overload the \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} operator to read the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_vector_8cpp_a6cbd09d946592ca8ca0dac357b1a8bba}{operator$>$$>$}} (double \&n, \mbox{\hyperlink{class_vector}{Vector}} const \&v)
+\begin{DoxyCompactList}\small\item\em Overload the \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} operator to assign the Z component of the vector to a double. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{_vector_8cpp_ac29df3dcbefa1ce189e5990bde994025}{epsilon}} = 1e-\/10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_vector_8cpp_a6a24a145e613478bdecbfa3c46072700}\label{_vector_8cpp_a6a24a145e613478bdecbfa3c46072700} 
+\index{Vector.cpp@{Vector.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vector.cpp@{Vector.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Overload the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator to print the vector. 
+
+Prints out a \doxylink{class_vector}{Vector} to the output stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+{\em v} & The vector to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00041}{Vector\+::print()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{_vector_8cpp_a6a24a145e613478bdecbfa3c46072700_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_vector_8cpp_a6cbd09d946592ca8ca0dac357b1a8bba}\label{_vector_8cpp_a6cbd09d946592ca8ca0dac357b1a8bba} 
+\index{Vector.cpp@{Vector.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vector.cpp@{Vector.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void operator$>$$>$ (\begin{DoxyParamCaption}\item[{double \&}]{n,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} const \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Overload the \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} operator to assign the Z component of the vector to a double. 
+
+Streams the Z coordinate into the double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The double variable to be assigned. \\
+\hline
+{\em v} & The vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{_vector_8cpp_a753622da3b06ec980be211efe6c5e3f1}\label{_vector_8cpp_a753622da3b06ec980be211efe6c5e3f1} 
+\index{Vector.cpp@{Vector.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vector.cpp@{Vector.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Overload the \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} operator to read the vector. 
+
+Reads a \doxylink{class_vector}{Vector} from input stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream. \\
+\hline
+{\em v} & The vector to be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input stream. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00055}{Vector\+::read()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{_vector_8cpp_a753622da3b06ec980be211efe6c5e3f1_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_vector_8cpp_ac29df3dcbefa1ce189e5990bde994025}\label{_vector_8cpp_ac29df3dcbefa1ce189e5990bde994025} 
+\index{Vector.cpp@{Vector.cpp}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!Vector.cpp@{Vector.cpp}}
+\doxysubsubsection{\texorpdfstring{epsilon}{epsilon}}
+{\footnotesize\ttfamily const double epsilon = 1e-\/10}
+
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+

@@ -1,0 +1,514 @@
+\doxysection{Vector Class Reference}
+\hypertarget{class_vector}{}\label{class_vector}\index{Vector@{Vector}}
+
+
+The \doxylink{class_vector}{Vector} class represents a 3D vector.  
+
+
+
+
+{\ttfamily \#include $<$Vector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c}{Vector}} (double x=999, double y=999, double z=999)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_vector}{Vector} class. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_vector_a60195b4feaa74f1578c0f4f984dce081}{get\+Length}} () const
+\begin{DoxyCompactList}\small\item\em Returns the length of the \doxylink{class_vector}{Vector}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vector_a361e797b7c226996c3c3b815690aa3ba}{print}} (std\+::ostream \&os=std\+::cout) const
+\begin{DoxyCompactList}\small\item\em Prints out a \doxylink{class_vector}{Vector} to the output stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vector_a61fa9ad2db52723de0ee34ecbbe83724}{read}} (std\+::istream \&is=std\+::cin)
+\begin{DoxyCompactList}\small\item\em Reads a \doxylink{class_vector}{Vector} from input stream. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a449091b284984dc0768a4380b05f81d3}{operator-\/}} (const \mbox{\hyperlink{class_vector}{Vector}} \&v) const
+\begin{DoxyCompactList}\small\item\em Subtracts two Vectors\+: v1 -\/ v2. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_ae62844b362fd8c0680d28c76feca6221}{operator+}} (const \mbox{\hyperlink{class_vector}{Vector}} \&v) const
+\begin{DoxyCompactList}\small\item\em Adds two Vectors together\+: v1 + v2. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vector_aba7123e2b03c93a1d226ac911db13155}{operator$<$}} (double \&d) const
+\begin{DoxyCompactList}\small\item\em Compares the z coordinate with a double. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vector_ab089ad650387403b22f729bdaea3d574}{operator$>$}} (double \&d) const
+\begin{DoxyCompactList}\small\item\em Compares the z coordinate with a double. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_aad249888c83dd2c8c6000d0c6d683fac}{operator\texorpdfstring{$\ast$}{*}}} (double scalar)
+\begin{DoxyCompactList}\small\item\em Multiply all the coordinates with a scalar value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vector_ade5fbd0cd01b034d1907e0c93433320c}{operator==}} (const \mbox{\hyperlink{class_vector}{Vector}} \&v) const
+\begin{DoxyCompactList}\small\item\em Compares two Vectors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}{convert}} (const float \texorpdfstring{$\ast$}{*}arr)
+\begin{DoxyCompactList}\small\item\em Converts the coordinates from float array to double. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_vector_adde9f0c3b971af3446d7414a0463a01f}{dot}} (const \mbox{\hyperlink{class_vector}{Vector}} \&v1, const \mbox{\hyperlink{class_vector}{Vector}} \&v2)
+\begin{DoxyCompactList}\small\item\em Calculates the dot product of two Vectors. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}{cross}} (const \mbox{\hyperlink{class_vector}{Vector}} \&v1, const \mbox{\hyperlink{class_vector}{Vector}} \&v2)
+\begin{DoxyCompactList}\small\item\em Calculates the cross product of two Vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_vector_a94a1ed1b2fe807a44c29766d78ade25c}{operator$>$$>$}} (double \&, \mbox{\hyperlink{class_vector}{Vector}} const \&)
+\begin{DoxyCompactList}\small\item\em Streams the Z coordinate into the double. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_vector}{Vector} class represents a 3D vector. 
+
+Definition at line \mbox{\hyperlink{_vector_8h_source_l00007}{7}} of file \mbox{\hyperlink{_vector_8h_source}{Vector.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c}\label{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c} 
+\index{Vector@{Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}}
+{\footnotesize\ttfamily Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{double}]{x = {\ttfamily 999},  }\item[{double}]{y = {\ttfamily 999},  }\item[{double}]{z = {\ttfamily 999} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the \doxylink{class_vector}{Vector} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the vector. \\
+\hline
+{\em y} & The y-\/coordinate of the vector. \\
+\hline
+{\em z} & The z-\/coordinate of the vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8h_source_l00020}{20}} of file \mbox{\hyperlink{_vector_8h_source}{Vector.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}\label{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2} 
+\index{Vector@{Vector}!convert@{convert}}
+\index{convert@{convert}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily void Vector\+::convert (\begin{DoxyParamCaption}\item[{const float \texorpdfstring{$\ast$}{*}}]{arr }\end{DoxyParamCaption})}
+
+
+
+Converts the coordinates from float array to double. 
+
+Convert a float array to a \doxylink{class_vector}{Vector}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The float array containing the coordinates.\\
+\hline
+{\em arr} & The float array. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00151}{151}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}\label{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf} 
+\index{Vector@{Vector}!cross@{cross}}
+\index{cross@{cross}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Vector\+::cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{n1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the cross product of two Vectors. 
+
+Calculate the cross product of two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & The first \doxylink{class_vector}{Vector}. \\
+\hline
+{\em v2} & The second \doxylink{class_vector}{Vector}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cross product of the two Vectors.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n1} & The first vector. \\
+\hline
+{\em n2} & The second vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cross product of the two vectors. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_adde9f0c3b971af3446d7414a0463a01f}\label{class_vector_adde9f0c3b971af3446d7414a0463a01f} 
+\index{Vector@{Vector}!dot@{dot}}
+\index{dot@{dot}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{dot()}{dot()}}
+{\footnotesize\ttfamily double Vector\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the dot product of two Vectors. 
+
+Calculate the dot product of two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & The first \doxylink{class_vector}{Vector}. \\
+\hline
+{\em v2} & The second \doxylink{class_vector}{Vector}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot product of the two Vectors.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & The first vector. \\
+\hline
+{\em v2} & The second vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot product of the two vectors. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vector_adde9f0c3b971af3446d7414a0463a01f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_a60195b4feaa74f1578c0f4f984dce081}\label{class_vector_a60195b4feaa74f1578c0f4f984dce081} 
+\index{Vector@{Vector}!getLength@{getLength}}
+\index{getLength@{getLength}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily double Vector\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the length of the \doxylink{class_vector}{Vector}. 
+
+Calculate the length of the vector.
+
+\begin{DoxyReturn}{Returns}
+The length of the \doxylink{class_vector}{Vector}.
+
+The length of the vector. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{class_vector_a60195b4feaa74f1578c0f4f984dce081_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_aad249888c83dd2c8c6000d0c6d683fac}\label{class_vector_aad249888c83dd2c8c6000d0c6d683fac} 
+\index{Vector@{Vector}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} \& Vector\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+
+
+
+Multiply all the coordinates with a scalar value. 
+
+Multiply the vector by a scalar value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & The scalar value to multiply with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting \doxylink{class_vector}{Vector}.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The scalar value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting vector. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{class_vector_ae62844b362fd8c0680d28c76feca6221}\label{class_vector_ae62844b362fd8c0680d28c76feca6221} 
+\index{Vector@{Vector}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Vector\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{B }\end{DoxyParamCaption}) const}
+
+
+
+Adds two Vectors together\+: v1 + v2. 
+
+Overload the + operator to add two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The \doxylink{class_vector}{Vector} to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting \doxylink{class_vector}{Vector}.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em B} & The vector to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting vector. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{class_vector_a449091b284984dc0768a4380b05f81d3}\label{class_vector_a449091b284984dc0768a4380b05f81d3} 
+\index{Vector@{Vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{B }\end{DoxyParamCaption}) const}
+
+
+
+Subtracts two Vectors\+: v1 -\/ v2. 
+
+Overload the -\/ operator to subtract two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The \doxylink{class_vector}{Vector} to subtract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting \doxylink{class_vector}{Vector}.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em B} & The vector to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting vector. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{class_vector_aba7123e2b03c93a1d226ac911db13155}\label{class_vector_aba7123e2b03c93a1d226ac911db13155} 
+\index{Vector@{Vector}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Vector\+::operator$<$ (\begin{DoxyParamCaption}\item[{double \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Compares the z coordinate with a double. 
+
+Overload the \texorpdfstring{$<$}{<} operator to compare the Z component of the vector with a double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The double to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the z coordinate is less than the double, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The double value to be compared with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Z component is less than n, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{class_vector_ade5fbd0cd01b034d1907e0c93433320c}\label{class_vector_ade5fbd0cd01b034d1907e0c93433320c} 
+\index{Vector@{Vector}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Vector\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption}) const}
+
+
+
+Compares two Vectors. 
+
+Check if two vectors are equal within a small epsilon value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The \doxylink{class_vector}{Vector} to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two Vectors are equal, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The vector to be compared with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vectors are equal, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_vector_8cpp_source_l00005}{epsilon}}.
+
+\Hypertarget{class_vector_ab089ad650387403b22f729bdaea3d574}\label{class_vector_ab089ad650387403b22f729bdaea3d574} 
+\index{Vector@{Vector}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Vector\+::operator$>$ (\begin{DoxyParamCaption}\item[{double \&}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Compares the z coordinate with a double. 
+
+Overload the \texorpdfstring{$>$}{>} operator to compare the Z component of the vector with a double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The double to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the z coordinate is greater than the double, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The double value to be compared with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Z component is greater than n, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+\Hypertarget{class_vector_a361e797b7c226996c3c3b815690aa3ba}\label{class_vector_a361e797b7c226996c3c3b815690aa3ba} 
+\index{Vector@{Vector}!print@{print}}
+\index{print@{print}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Vector\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption}) const}
+
+
+
+Prints out a \doxylink{class_vector}{Vector} to the output stream. 
+
+Print the vector to the output stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{class_vector_a361e797b7c226996c3c3b815690aa3ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_a61fa9ad2db52723de0ee34ecbbe83724}\label{class_vector_a61fa9ad2db52723de0ee34ecbbe83724} 
+\index{Vector@{Vector}!read@{read}}
+\index{read@{read}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void Vector\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is = {\ttfamily std\+:\+:cin} }\end{DoxyParamCaption})}
+
+
+
+Reads a \doxylink{class_vector}{Vector} from input stream. 
+
+Read the vector from the input stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vector_a61fa9ad2db52723de0ee34ecbbe83724_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_vector_a94a1ed1b2fe807a44c29766d78ade25c}\label{class_vector_a94a1ed1b2fe807a44c29766d78ade25c} 
+\index{Vector@{Vector}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily void operator$>$$>$ (\begin{DoxyParamCaption}\item[{double \&}]{d,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} const \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Streams the Z coordinate into the double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The double to store the Z coordinate. \\
+\hline
+{\em v} & The \doxylink{class_vector}{Vector} to extract the Z coordinate from.\\
+\hline
+{\em n} & The double variable to be assigned. \\
+\hline
+{\em v} & The vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_vector_8h}{Vector.\+h}}\item 
+C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_vector_8cpp}{Vector.\+cpp}}\end{DoxyCompactItemize}

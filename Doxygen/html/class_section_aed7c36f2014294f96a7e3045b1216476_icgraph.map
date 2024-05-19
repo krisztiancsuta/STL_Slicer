@@ -1,0 +1,5 @@
+<map id="Section::print" name="Section::print">
+<area shape="rect" id="Node000001" title="Prints the section to the specified output stream." alt="" coords="138,5,236,32"/>
+<area shape="rect" id="Node000002" href="$_section_8cpp.html#af95d2caa0c69458ab8d4dc8b7c5328a8" title="Overloads the &lt;&lt; operator to print the section to the specified output stream." alt="" coords="5,5,90,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,21,90,21,90,16,122,16"/>
+</map>

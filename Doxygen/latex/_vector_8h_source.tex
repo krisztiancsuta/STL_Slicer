@@ -1,0 +1,53 @@
+\doxysection{Vector.\+h}
+\hypertarget{_vector_8h_source}{}\label{_vector_8h_source}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/include/Vector.h@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/include/Vector.h}}
+\mbox{\hyperlink{_vector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00007}\mbox{\hyperlink{class_vector}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vector}{Vector}}}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00009}00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{double}\ XYZ[3];}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_a94a1ed1b2fe807a44c29766d78ade25c}{operator>>}}(\textcolor{keywordtype}{double}\&,\ \mbox{\hyperlink{class_vector}{Vector}}\ \textcolor{keyword}{const}\&);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00020}\mbox{\hyperlink{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c}{00020}}\ \ \ \ \ \mbox{\hyperlink{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c}{Vector}}(\textcolor{keywordtype}{double}\ x\ =\ 999,\ \textcolor{keywordtype}{double}\ y\ =\ 999,\ \textcolor{keywordtype}{double}\ z\ =\ 999)}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00021}00021\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ XYZ[0]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ XYZ[1]\ =\ y;}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ XYZ[2]\ =\ z;}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00025}00025\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_vector_a60195b4feaa74f1578c0f4f984dce081}{getLength}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_vector_adde9f0c3b971af3446d7414a0463a01f}{dot}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v2);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_vector}{Vector}}\ \mbox{\hyperlink{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}{cross}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v2);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_a361e797b7c226996c3c3b815690aa3ba}{print}}(std::ostream\&\ os\ =\ std::cout)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_a61fa9ad2db52723de0ee34ecbbe83724}{read}}(std::istream\&\ is\ =\ std::cin);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ \mbox{\hyperlink{class_vector_a449091b284984dc0768a4380b05f81d3}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ \mbox{\hyperlink{class_vector_ae62844b362fd8c0680d28c76feca6221}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_aba7123e2b03c93a1d226ac911db13155}{operator<}}(\textcolor{keywordtype}{double}\&\ d)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_ab089ad650387403b22f729bdaea3d574}{operator>}}(\textcolor{keywordtype}{double}\&\ d)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\&\ \mbox{\hyperlink{class_vector_aad249888c83dd2c8c6000d0c6d683fac}{operator*}}(\textcolor{keywordtype}{double}\ scalar);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_ade5fbd0cd01b034d1907e0c93433320c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}{convert}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ arr);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00108}00108\ \};}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00116}00116\ std::ostream\&\ \mbox{\hyperlink{_vector_8h_a50f57860275ff6d44dd00d3da3cb5dee}{operator<<}}(std::ostream\&\ os,\ \mbox{\hyperlink{class_vector}{Vector}}\ \textcolor{keyword}{const}\&\ v);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00124}00124\ std::istream\&\ \mbox{\hyperlink{_vector_8h_a753622da3b06ec980be211efe6c5e3f1}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{class_vector}{Vector}}\&\ v);}
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_vector_8h_source_l00131}00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vector_8h_a753622da3b06ec980be211efe6c5e3f1}{operator>>}}(\textcolor{keywordtype}{double}\&\ d,\ \mbox{\hyperlink{class_vector}{Vector}}\ \textcolor{keyword}{const}\&\ v);}
+
+\end{DoxyCode}
