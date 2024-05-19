@@ -40,3 +40,6 @@ n is the normal vector of the plane.
 The .dot operation represents the dot product, a fundamental operation in vector algebra.
 
 From this point forward, we leverage the interpretation of the source code to identify the required segments and points. This is achieved through straightforward vector operations such as cross and dot products, as well as subtraction and addition operations.
+
+UML Diagram:
+![Alt text](Doxygen/output.png)
