@@ -1,21 +1,21 @@
 # STL_Slicer
-3D nyomtatóhoz, egy egyszerű szeletelő program, ami bármely típúsú .stl kiterjesztésű file-ból .gcode kiterjesztésű "leszeletelt", azaz nyomtatható file-t generál.
 
-A program használatához a mingw32-make parancsal buildelni kell a projektet, a futtatható .exe file a /bin mappában található.
+STL_Slicer is a simple slicing program for 3D printing. It generates printable `.gcode` files from any `.stl` files.
 
-A ./main.exe file futtatása során a paraméterlista formátumát egy példával mutatja be.
-Célszerű a /stl_testfiles mappából a teljes élérési utat bemásolni paraméterként, hogy a program biztosan megtalálja a testfile-t.
+## Usage
 
-Az optimális szeletelési vastagság 0.2-0,35 mm között mozog. Persze lehet szésőséges eseteket is kipróbálni, mint az 1 vagy 0.001 mm,
-viszont ez esetben a program futási ideje relevánsan megnövekedhet vagy az output file felbontása romlik.
+First, build the project using the `mingw32-make` command. The executable `.exe` file can be found in the `/bin` directory.
 
-A program futását egy "for" ciklusban az iteráló változó alapján határozza meg a program, hogy éppen hány %-on tart a szeletelés.
+To run the program, execute the `./main.exe` file. The format of the parameter list is demonstrated with an example. It's recommended to copy the full path from the `/stl_testfiles` directory as a parameter to ensure the program finds the test file.
 
-A program outputja egy <filename>.gcode kimeneti file, amit szintén a /stl_testfiles mappába helyez a program.
+The optimal slicing thickness ranges between 0.2 and 0.35 mm. You can also try extreme cases like 1 or 0.001 mm, but in these cases, the program's runtime may significantly increase or the output file's resolution may degrade.
 
-Az output vizualizására a legegyszerűbb megoldás a CURA Slicerrel való megnyitás.
-A bintest.gcode outputja:
+The program determines its progress based on an iterating variable in a "for" loop.
+
+The program outputs a `<filename>.gcode` file, which it places in the `/stl_testfiles` directory.
+
+## Visualization
+
+The easiest way to visualize the output is to open it with CURA Slicer. Here's the output of `bintest.gcode`:
+
 ![Alt text](Doxygen/bintest_cura.png)
-
-
-

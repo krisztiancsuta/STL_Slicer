@@ -1,1 +1,0 @@
-Ebben a mappában található a futtatható file.
