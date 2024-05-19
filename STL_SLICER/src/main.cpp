@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
         std::vector<Facet> facets = STLFile::readSTLFile(argv[1]);
         double max = STLFile::maxZ;
         double min = STLFile::minZ;
-        
+
         std::string filename = std::string(argv[1]);
         size_t dotPos = filename.find_last_of(".");
         if (dotPos != std::string::npos) {
@@ -65,11 +65,11 @@ int main(int argc, char* argv[])
         {
             Plane cutter(Vector(0, 0, i), Vector(0, 0, 1));
             std::vector<Section> sections_per_level;
-            #ifdef _WIN32
-                std::system("cls");
-            #else
-                std::system("clear");
-            #endif
+#ifdef _WIN32
+            std::system("cls");
+#else
+            std::system("clear");
+#endif
             std::cout << "Slicing: " << argv[1] << std::endl;
             std::cout << "Progress " << std::ceil((i / max) * 100) << "%" << std::flush;
 
