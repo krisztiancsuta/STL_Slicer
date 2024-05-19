@@ -4,7 +4,7 @@ TARGET = main
 # CXX: A C++ fordító. El is hagyhatjuk. Ha nem adjuk meg, akkor a rendszer default C++ fordítója
 CXX = g++	
 # CXXFLAGS: A fordító flagek
-CXXFLAGS = -g -Wall 
+CXXFLAGS = -g -Wall -std=c++17 -O2 
 # LDFLAGS: A linker flagek (most üres)
 LDFLAGS =
 INCFLAGS = -I$(INCDIR)
@@ -29,7 +29,7 @@ DEPS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.d)
 
 # A célprogram minden objecttől függ. A fordítási szabály egyszerű.
 $(BINDIR)/$(TARGET): $(OBJECTS)
-	$(CXX) -O2 -o $@ $(OBJECTS) $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJECTS) $(LDFLAGS) 
 
 # Minden .o fájl függ az azonos nevű .cpp-től. A fordítási szabály egyszerű.
 # A -MMD kapcsoló magyarázata: A fordító ezzel minden .cpp fájlból készít egy .d fájlt is, mely a .cpp fájl összes include függőségét tartalmazza. Ha pl a csucsu.cpp include-olja a csucsu.h-t, a csucsu.h pedig include-olja a bubu.h-t, akkor a fordító készít egy csucsu.d-t, melynek tartalma:

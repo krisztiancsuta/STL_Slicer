@@ -7,6 +7,7 @@
 #include <vector>
 #include "Gcode.h"
 #include <fstream>
+#include <cmath>
 
 #define DEBUG false
 
@@ -64,7 +65,11 @@ int main(int argc, char* argv[])
         {
             Plane cutter(Vector(0, 0, i), Vector(0, 0, 1));
             std::vector<Section> sections_per_level;
-            std::system("clear");
+            #ifdef _WIN32
+                std::system("cls");
+            #else
+                std::system("clear");
+            #endif
             std::cout << "Slicing: " << argv[1] << std::endl;
             std::cout << "Progress " << std::ceil((i / max) * 100) << "%" << std::flush;
 
