@@ -101,6 +101,11 @@ $(document).ready(function(){initNavTree('class_facet.html',''); initResizable()
  <a href="class_facet.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_facet_8h_source.html">Facet.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Facet:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_facet__coll__graph.svg" width="143" height="123"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -176,7 +181,8 @@ Friends</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_facet_8h_source.html#l00027">27</a> of file <a class="el" href="_facet_8h_source.html">Facet.h</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{ verteces[0] = a; verteces[1] = b; verteces[2] = c; };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -217,23 +223,59 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The intersection section of the facet and the plane. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_facet_8cpp_source.html#l00011">11</a> of file <a class="el" href="_facet_8cpp_source.html">Facet.cpp</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                         {</div>
+<div class="line"><span class="lineno">   12</span>    <span class="comment">// Calculate the intersection of the facet and a plane</span></div>
+<div class="line"><span class="lineno">   13</span>    <span class="comment">// and return a section representing the intersection</span></div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>    <span class="comment">// Create sections between each pair of vertices</span></div>
+<div class="line"><span class="lineno">   16</span>    <a class="code hl_class" href="class_section.html">Section</a> Sections[3] = { <a class="code hl_class" href="class_section.html">Section</a>(verteces[0], verteces[1]),</div>
+<div class="line"><span class="lineno">   17</span>                            <a class="code hl_class" href="class_section.html">Section</a>(verteces[0], verteces[2]),</div>
+<div class="line"><span class="lineno">   18</span>                            <a class="code hl_class" href="class_section.html">Section</a>(verteces[1], verteces[2]) };</div>
+<div class="line"><span class="lineno">   19</span> </div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_class" href="class_vector.html">Vector</a> section_points[2];</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordtype">unsigned</span> j = 0; <span class="comment">// Count the number of intersection points</span></div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>    <span class="comment">// Iterate over each section</span></div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; 3; i++) {</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordtype">bool</span> isValidPoint = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   26</span>        <a class="code hl_class" href="class_vector.html">Vector</a> tmp = Sections[i].<a class="code hl_function" href="class_section.html#a835a554a53f6b51ef859a2b82c81aa87">PlaneInterSection</a>(plane, isValidPoint);</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (isValidPoint) {</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">if</span> (j == 0) {</div>
+<div class="line"><span class="lineno">   30</span>                section_points[j++] = tmp;</div>
+<div class="line"><span class="lineno">   31</span>            }</div>
+<div class="line"><span class="lineno">   32</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   33</span>                <span class="comment">// Check if the intersection point is already in the section</span></div>
+<div class="line"><span class="lineno">   34</span>                <span class="keywordtype">bool</span> isSimilar = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   35</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; j; k++) {</div>
+<div class="line"><span class="lineno">   36</span>                    <span class="keywordflow">if</span> (tmp == section_points[k]) {</div>
+<div class="line"><span class="lineno">   37</span>                        isSimilar = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   38</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   39</span>                    }</div>
+<div class="line"><span class="lineno">   40</span>                }</div>
+<div class="line"><span class="lineno">   41</span>                <span class="keywordflow">if</span> (!isSimilar) {</div>
+<div class="line"><span class="lineno">   42</span>                    section_points[j++] = tmp;</div>
+<div class="line"><span class="lineno">   43</span>                }</div>
+<div class="line"><span class="lineno">   44</span>            }</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="comment">// Check if there are exactly 2 intersection points</span></div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (j != 2) {</div>
+<div class="line"><span class="lineno">   50</span>        isValidSection = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_section.html">Section</a>(section_points[0], section_points[1]);</div>
+<div class="line"><span class="lineno">   54</span>}</div>
+<div class="ttc" id="aclass_section_html"><div class="ttname"><a href="class_section.html">Section</a></div><div class="ttdoc">Represents a section defined by two vectors.</div><div class="ttdef"><b>Definition</b> <a href="_section_8h_source.html#l00009">Section.h:9</a></div></div>
+<div class="ttc" id="aclass_section_html_a835a554a53f6b51ef859a2b82c81aa87"><div class="ttname"><a href="class_section.html#a835a554a53f6b51ef859a2b82c81aa87">Section::PlaneInterSection</a></div><div class="ttdeci">Vector PlaneInterSection(const Plane &amp;plane, bool &amp;isValidPoint) const</div><div class="ttdoc">Calculates the intersection point between the section and a plane.</div><div class="ttdef"><b>Definition</b> <a href="_section_8cpp_source.html#l00007">Section.cpp:7</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">The Vector class represents a 3D vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00007">Vector.h:8</a></div></div>
+</div><!-- fragment -->
 <p class="reference">References <a class="el" href="_section_8cpp_source.html#l00007">Section::PlaneInterSection()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_facet_a06878114e2ec85eaeeeb0e0589f6e203_cgraph.png" border="0" usemap="#aclass_facet_a06878114e2ec85eaeeeb0e0589f6e203_cgraph" alt=""/></div>
-<map name="aclass_facet_a06878114e2ec85eaeeeb0e0589f6e203_cgraph" id="aclass_facet_a06878114e2ec85eaeeeb0e0589f6e203_cgraph">
-<area shape="rect" title="Calculates the intersection of the facet and a plane." alt="" coords="5,56,168,83"/>
-<area shape="rect" href="class_section.html#a835a554a53f6b51ef859a2b82c81aa87" title="Calculates the intersection point between the section and a plane." alt="" coords="216,56,391,83"/>
-<area shape="poly" title=" " alt="" coords="168,67,200,67,200,72,168,72"/>
-<area shape="rect" href="class_vector.html#adde9f0c3b971af3446d7414a0463a01f" title="Calculates the dot product of two Vectors." alt="" coords="457,5,542,32"/>
-<area shape="poly" title=" " alt="" coords="357,53,442,31,443,36,359,58"/>
-<area shape="rect" href="class_plane.html#afc07a77fb09621deceedc9f855787bf1" title="Gets the normal vector of the plane." alt="" coords="439,56,560,83"/>
-<area shape="poly" title=" " alt="" coords="391,67,423,67,423,72,391,72"/>
-<area shape="rect" href="class_plane.html#aa6f76844fc03732fb917012dc3de43dc" title="Gets the reference point of the plane." alt="" coords="450,107,549,133"/>
-<area shape="poly" title=" " alt="" coords="359,81,436,101,434,106,357,86"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_facet_a06878114e2ec85eaeeeb0e0589f6e203_cgraph.svg" width="566" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -263,7 +305,10 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_facet_8cpp_source.html#l00056">56</a> of file <a class="el" href="_facet_8cpp_source.html">Facet.cpp</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                                      {</div>
+<div class="line"><span class="lineno">   57</span>    os &lt;&lt; <span class="stringliteral">&quot;Facet A:&quot;</span> &lt;&lt; verteces[0] &lt;&lt; <span class="stringliteral">&quot; ,B:&quot;</span> &lt;&lt; verteces[1] &lt;&lt; <span class="stringliteral">&quot; ,C:&quot;</span> &lt;&lt; verteces[2];</div>
+<div class="line"><span class="lineno">   58</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Symbol Documentation</h2>
@@ -302,7 +347,12 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_facet_8cpp_source.html#l00006">6</a> of file <a class="el" href="_facet_8cpp_source.html">Facet.cpp</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">    6</span>                                                       {</div>
+<div class="line"><span class="lineno">    7</span>    f.<a class="code hl_function" href="class_facet.html#a121d9745dcfcdd013e7e85200bd416f7">print</a>(os);</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">return</span> os;</div>
+<div class="line"><span class="lineno">    9</span>}</div>
+<div class="ttc" id="aclass_facet_html_a121d9745dcfcdd013e7e85200bd416f7"><div class="ttname"><a href="class_facet.html#a121d9745dcfcdd013e7e85200bd416f7">Facet::print</a></div><div class="ttdeci">void print(std::ostream &amp;os=std::cout) const</div><div class="ttdoc">Prints the facet to the specified output stream.</div><div class="ttdef"><b>Definition</b> <a href="_facet_8cpp_source.html#l00056">Facet.cpp:56</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

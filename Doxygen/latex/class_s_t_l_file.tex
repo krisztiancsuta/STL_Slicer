@@ -9,6 +9,16 @@ The \doxylink{class_s_t_l_file}{STLFile} class represents an STL file.
 
 {\ttfamily \#include $<$STLFile.\+h$>$}
 
+
+
+Collaboration diagram for STLFile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_s_t_l_file__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -65,7 +75,28 @@ true if the file is in binary format, false otherwise.
 
 Definition at line \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_s_t_l_file_8cpp_source}{STLFile.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ std::ifstream\ file(filename,\ std::ios::in\ |\ std::ios::binary);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Could\ not\ open\ file:\ "{}}\ +\ filename);}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{char}\ header[6];}
+\DoxyCodeLine{00117\ \ \ \ \ file.read(header,\ 6);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(header,\ 6)\ !=\ \textcolor{stringliteral}{"{}solid\ "{}};\ \textcolor{comment}{//\ Check\ if\ stl\ file\ is\ in\ binary\ mode\ }}
+\DoxyCodeLine{00120\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{read\+STLFile()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -105,17 +136,115 @@ std\+::vector$<$\+Facet$>$ A vector containing the facets read from the file.
 Definition at line \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_s_t_l_file_8cpp_source}{STLFile.\+cpp}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<Facet>\ facets;\ \textcolor{comment}{//\ Create\ a\ vector\ to\ store\ the\ facets\ (this\ will\ dynamically\ grow)}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_s_t_l_file_a70051ce594359a89af68af24680dbd26}{isBinarySTL}}(filename))}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::ifstream\ stl\_file(filename,\ std::ios::binary);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!stl\_file.is\_open())\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Could\ not\ open\ file:\ "{}}\ +\ filename);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ facets;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ header\ (80\ bytes)\ and\ ignore\ it}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ stl\_file.ignore(80);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ number\ of\ facets\ (4\ bytes)}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ uint32\_t\ numFacets;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ stl\_file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&numFacets),\ \textcolor{keyword}{sizeof}(numFacets));}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ each\ facet}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ numFacets;\ i++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ normal\ vector\ (12\ bytes)}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ normal[3];}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ stl\_file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&normal),\ \textcolor{keyword}{sizeof}(normal));}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ vertices\ (36\ bytes)}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ vertices[3];}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ xyz[3];}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stl\_file.\mbox{\hyperlink{class_vector_a61fa9ad2db52723de0ee34ecbbe83724}{read}}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&xyz),\ \textcolor{keyword}{sizeof}(xyz));}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices[j].\mbox{\hyperlink{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}{convert}}(xyz);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices[j]\ <\ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{minZ}})\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{minZ}}\ >>\ vertices[j];}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices[j]\ >\ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{maxZ}})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{maxZ}}\ >>\ vertices[j];}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Skip\ the\ attribute\ byte\ count\ (2\ bytes)}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ stl\_file.ignore(2);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_facet}{Facet}}\ facet(vertices[0],\ vertices[1],\ vertices[2]);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ facets.push\_back(facet);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ stl\_file.close();}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{else}\textcolor{comment}{//Read\ file\ in\ text\ format}}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::ifstream\ stl\_file(filename);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!stl\_file.is\_open())\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Could\ not\ open\ file:\ "{}}\ +\ filename);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ facets;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(stl\_file,\ line))\ \{\ \textcolor{comment}{//\ Read\ each\ line}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ xyz[3];}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.find(\textcolor{stringliteral}{"{}facet\ normal"{}})\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::istringstream\ sin(line.substr(line.find("{}facet\ normal"{})\ +\ 12));\ //\ Initialize\ with\ the\ part\ after\ "{}facet\ normal"{}}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//sin\ >>\ n;\ //\ overloaded\ >>\ operator}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(stl\_file,\ line);\ \textcolor{comment}{//\ Skip\ "{}outer\ loop"{}}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(stl\_file,\ line);\ \textcolor{comment}{//\ Read\ vertex}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::istringstream\ sin(line.substr(line.find(\textcolor{stringliteral}{"{}vertex"{}})\ +\ 6));\ \textcolor{comment}{//\ Initialize\ with\ the\ part\ after\ "{}facet\ normal"{}}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sin\ >>\ xyz[i];}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (xyz[i]\ <\ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{minZ}})\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{minZ}}\ >>\ xyz[i];\textcolor{comment}{//"{}beletöltöm\ a\ Vector\ >>\ operatorral\ a\ koordinatat"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (xyz[i]\ >\ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{maxZ}})\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{maxZ}}\ >>\ xyz[i];}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(stl\_file,\ line);\ \textcolor{comment}{//\ Skip\ "{}endloop"{}}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(stl\_file,\ line);\ \textcolor{comment}{//\ Skip\ "{}endfacet"{}}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_facet}{Facet}}\ facet(xyz[0],\ xyz[1],\ xyz[2]);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ facets.push\_back(facet);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ stl\_file.close();}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ facets;}
+\DoxyCodeLine{00101\ \}}
+
+\end{DoxyCode}
+
 
 References \mbox{\hyperlink{_vector_8cpp_source_l00151}{Vector\+::convert()}}, \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00109}{is\+Binary\+STL()}}, \mbox{\hyperlink{_s_t_l_file_8h_source_l00014}{maxZ}}, \mbox{\hyperlink{_s_t_l_file_8h_source_l00013}{minZ}}, and \mbox{\hyperlink{_vector_8cpp_source_l00055}{Vector\+::read()}}.
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=330pt]{class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -135,6 +264,10 @@ The maximum Z coordinate value in the STL file.
 
 Definition at line \mbox{\hyperlink{_s_t_l_file_8h_source_l00014}{14}} of file \mbox{\hyperlink{_s_t_l_file_8h_source}{STLFile.\+h}}.
 
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}, and \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{read\+STLFile()}}.
+
 \Hypertarget{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}\label{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579} 
 \index{STLFile@{STLFile}!minZ@{minZ}}
 \index{minZ@{minZ}!STLFile@{STLFile}}
@@ -144,6 +277,10 @@ Definition at line \mbox{\hyperlink{_s_t_l_file_8h_source_l00014}{14}} of file \
 The minimum Z coordinate value in the STL file. 
 
 Definition at line \mbox{\hyperlink{_s_t_l_file_8h_source_l00013}{13}} of file \mbox{\hyperlink{_s_t_l_file_8h_source}{STLFile.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}, and \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{read\+STLFile()}}.
 
 
 

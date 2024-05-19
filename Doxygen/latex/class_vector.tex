@@ -9,6 +9,16 @@ The \doxylink{class_vector}{Vector} class represents a 3D vector.
 
 {\ttfamily \#include $<$Vector.\+h$>$}
 
+
+
+Collaboration diagram for Vector\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_vector__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -80,6 +90,15 @@ Constructor for the \doxylink{class_vector}{Vector} class.
 Definition at line \mbox{\hyperlink{_vector_8h_source_l00020}{20}} of file \mbox{\hyperlink{_vector_8h_source}{Vector.\+h}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ XYZ[0]\ =\ x;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ XYZ[1]\ =\ y;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ XYZ[2]\ =\ z;}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+
+\end{DoxyCode}
+
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}\label{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2} 
@@ -105,7 +124,21 @@ Convert a float array to a \doxylink{class_vector}{Vector}.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00151}{151}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ XYZ[0]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(arr[0]);}
+\DoxyCodeLine{00153\ \ \ \ \ XYZ[1]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(arr[1]);}
+\DoxyCodeLine{00154\ \ \ \ \ XYZ[2]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(arr[2]);}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{STLFile\+::read\+STLFile()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -148,7 +181,21 @@ The cross product of the two vectors.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(n1.XYZ[1]\ *\ n2.XYZ[2]\ -\/\ n1.XYZ[2]\ *\ n2.XYZ[1],}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ n1.XYZ[2]\ *\ n2.XYZ[0]\ -\/\ n1.XYZ[0]\ *\ n2.XYZ[2],}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ n1.XYZ[0]\ *\ n2.XYZ[1]\ -\/\ n1.XYZ[1]\ *\ n2.XYZ[0]);}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -191,7 +238,19 @@ The dot product of the two vectors.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ v1.XYZ[0]\ *\ v2.XYZ[0]\ +\ v1.XYZ[1]\ *\ v2.XYZ[1]\ +\ v1.XYZ[2]\ *\ v2.XYZ[2];}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}, and \mbox{\hyperlink{_section_8cpp_source_l00007}{Section\+::\+Plane\+Inter\+Section()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -219,7 +278,19 @@ The length of the vector.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(XYZ[0]\ *\ XYZ[0]\ +\ XYZ[1]\ *\ XYZ[1]\ +\ XYZ[2]\ *\ XYZ[2]);}
+\DoxyCodeLine{00013\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -258,6 +329,16 @@ The resulting vector.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ XYZ[0]\ *=\ t;}
+\DoxyCodeLine{00133\ \ \ \ \ XYZ[1]\ *=\ t;}
+\DoxyCodeLine{00134\ \ \ \ \ XYZ[2]\ *=\ t;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00136\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_vector_ae62844b362fd8c0680d28c76feca6221}\label{class_vector_ae62844b362fd8c0680d28c76feca6221} 
 \index{Vector@{Vector}!operator+@{operator+}}
 \index{operator+@{operator+}!Vector@{Vector}}
@@ -290,6 +371,13 @@ The resulting vector.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(XYZ[0]\ +\ B.XYZ[0],\ XYZ[1]\ +\ B.XYZ[1],\ XYZ[2]\ +\ B.XYZ[2]);}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_vector_a449091b284984dc0768a4380b05f81d3}\label{class_vector_a449091b284984dc0768a4380b05f81d3} 
 \index{Vector@{Vector}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Vector@{Vector}}
@@ -322,6 +410,13 @@ The resulting vector.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(XYZ[0]\ -\/\ B.XYZ[0],\ XYZ[1]\ -\/\ B.XYZ[1],\ XYZ[2]\ -\/\ B.XYZ[2]);}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_vector_aba7123e2b03c93a1d226ac911db13155}\label{class_vector_aba7123e2b03c93a1d226ac911db13155} 
 \index{Vector@{Vector}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Vector@{Vector}}
@@ -354,6 +449,13 @@ True if the Z component is less than n, false otherwise.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[2]\ <\ n;}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_vector_ade5fbd0cd01b034d1907e0c93433320c}\label{class_vector_ade5fbd0cd01b034d1907e0c93433320c} 
 \index{Vector@{Vector}!operator==@{operator==}}
 \index{operator==@{operator==}!Vector@{Vector}}
@@ -386,6 +488,13 @@ True if the vectors are equal, false otherwise.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ (std::abs(v.XYZ[0]\ -\/\ XYZ[0])\ <\ \mbox{\hyperlink{_vector_8cpp_ac29df3dcbefa1ce189e5990bde994025}{epsilon}}\ \&\&\ std::abs(v.XYZ[1]\ -\/\ XYZ[1])\ <\ \mbox{\hyperlink{_vector_8cpp_ac29df3dcbefa1ce189e5990bde994025}{epsilon}}\ \&\&\ std::abs(v.XYZ[2]\ -\/\ XYZ[2])\ <\ \mbox{\hyperlink{_vector_8cpp_ac29df3dcbefa1ce189e5990bde994025}{epsilon}});}
+\DoxyCodeLine{00145\ \}}
+
+\end{DoxyCode}
 
 
 References \mbox{\hyperlink{_vector_8cpp_source_l00005}{epsilon}}.
@@ -422,6 +531,13 @@ True if the Z component is greater than n, false otherwise.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[2]\ >\ n;}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_vector_a361e797b7c226996c3c3b815690aa3ba}\label{class_vector_a361e797b7c226996c3c3b815690aa3ba} 
 \index{Vector@{Vector}!print@{print}}
 \index{print@{print}!Vector@{Vector}}
@@ -443,7 +559,25 @@ Print the vector to the output stream.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (\&os\ !=\ \&std::cout)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ output\ stream\ is\ not\ cout,\ we\ use\ a\ different\ format.}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ X"{}}\ <<\ XYZ[0]\ <<\ \textcolor{stringliteral}{"{}\ Y"{}}\ <<\ XYZ[1]\ <<\ \textcolor{stringliteral}{"{}\ Z"{}}\ <<\ XYZ[2];}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Vector("{}}\ <<\ XYZ[0]\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ XYZ[1]\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ XYZ[2]\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_vector_8cpp_source_l00065}{operator$<$$<$()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -471,7 +605,19 @@ Read the vector from the input stream.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ is\ >>\ XYZ[0]\ >>\ XYZ[1]\ >>\ XYZ[2];}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_vector_8cpp_source_l00076}{operator$>$$>$()}}, and \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{STLFile\+::read\+STLFile()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -506,6 +652,13 @@ Streams the Z coordinate into the double.
 
 Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_vector_8cpp_source}{Vector.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ n\ =\ v.XYZ[2];}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

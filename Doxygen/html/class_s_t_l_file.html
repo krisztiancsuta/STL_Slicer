@@ -101,6 +101,11 @@ $(document).ready(function(){initNavTree('class_s_t_l_file.html',''); initResiza
  <a href="class_s_t_l_file.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_s_t_l_file_8h_source.html">STLFile.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for STLFile:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_t_l_file__coll__graph.svg" width="112" height="123"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -165,17 +170,24 @@ Static Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>true if the file is in binary format, false otherwise. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_s_t_l_file_8cpp_source.html#l00109">109</a> of file <a class="el" href="_s_t_l_file_8cpp_source.html">STLFile.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>                                                   {</div>
+<div class="line"><span class="lineno">  110</span>    std::ifstream file(filename, std::ios::in | std::ios::binary);</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">if</span> (!file) {</div>
+<div class="line"><span class="lineno">  113</span>        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Could not open file: &quot;</span> + filename);</div>
+<div class="line"><span class="lineno">  114</span>    }</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordtype">char</span> header[6];</div>
+<div class="line"><span class="lineno">  117</span>    file.read(header, 6);</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> std::string(header, 6) != <span class="stringliteral">&quot;solid &quot;</span>; <span class="comment">// Check if stl file is in binary mode </span></div>
+<div class="line"><span class="lineno">  120</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_s_t_l_file_8cpp_source.html#l00014">readSTLFile()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_s_t_l_file_a70051ce594359a89af68af24680dbd26_icgraph.png" border="0" usemap="#aclass_s_t_l_file_a70051ce594359a89af68af24680dbd26_icgraph" alt=""/></div>
-<map name="aclass_s_t_l_file_a70051ce594359a89af68af24680dbd26_icgraph" id="aclass_s_t_l_file_a70051ce594359a89af68af24680dbd26_icgraph">
-<area shape="rect" title="Checks if the file is in binary STL format." alt="" coords="293,5,436,32"/>
-<area shape="rect" href="class_s_t_l_file.html#a459673a6261deda3fc8b820d03a7570b" title="Reads the STL file in binary or text format." alt="" coords="103,5,245,32"/>
-<area shape="poly" title=" " alt="" coords="278,21,246,21,246,16,278,16"/>
-<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function of the program." alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_t_l_file_a70051ce594359a89af68af24680dbd26_icgraph.svg" width="442" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -222,31 +234,114 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Facet&gt; A vector containing the facets read from the file. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_s_t_l_file_8cpp_source.html#l00014">14</a> of file <a class="el" href="_s_t_l_file_8cpp_source.html">STLFile.cpp</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                               {</div>
+<div class="line"><span class="lineno">   15</span> </div>
+<div class="line"><span class="lineno">   16</span>    std::vector&lt;Facet&gt; facets; <span class="comment">// Create a vector to store the facets (this will dynamically grow)</span></div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_s_t_l_file.html#a70051ce594359a89af68af24680dbd26">isBinarySTL</a>(filename))</div>
+<div class="line"><span class="lineno">   19</span>    {</div>
+<div class="line"><span class="lineno">   20</span>        std::ifstream stl_file(filename, std::ios::binary);</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">if</span> (!stl_file.is_open()) {</div>
+<div class="line"><span class="lineno">   22</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Could not open file: &quot;</span> + filename);</div>
+<div class="line"><span class="lineno">   23</span>            <span class="keywordflow">return</span> facets;</div>
+<div class="line"><span class="lineno">   24</span>        }</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>        <span class="comment">// Read the header (80 bytes) and ignore it</span></div>
+<div class="line"><span class="lineno">   27</span>        stl_file.ignore(80);</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>        <span class="comment">// Read the number of facets (4 bytes)</span></div>
+<div class="line"><span class="lineno">   30</span>        uint32_t numFacets;</div>
+<div class="line"><span class="lineno">   31</span>        stl_file.read(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;numFacets), <span class="keyword">sizeof</span>(numFacets));</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>        <span class="comment">// Read each facet</span></div>
+<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; numFacets; i++) {</div>
+<div class="line"><span class="lineno">   35</span>            <span class="comment">// Read the normal vector (12 bytes)</span></div>
+<div class="line"><span class="lineno">   36</span>            <span class="keywordtype">float</span> normal[3];</div>
+<div class="line"><span class="lineno">   37</span>            stl_file.read(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;normal), <span class="keyword">sizeof</span>(normal));</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>            <span class="comment">// Read the vertices (36 bytes)</span></div>
+<div class="line"><span class="lineno">   40</span>            <a class="code hl_class" href="class_vector.html">Vector</a> vertices[3];</div>
+<div class="line"><span class="lineno">   41</span>            <span class="keywordtype">float</span> xyz[3];</div>
+<div class="line"><span class="lineno">   42</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; j++) {</div>
+<div class="line"><span class="lineno">   43</span>                stl_file.<a class="code hl_function" href="class_vector.html#a61fa9ad2db52723de0ee34ecbbe83724">read</a>(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;xyz), <span class="keyword">sizeof</span>(xyz));</div>
+<div class="line"><span class="lineno">   44</span>                vertices[j].<a class="code hl_function" href="class_vector.html#ad90e14b6e298f246cb7a46e8a3aef6e2">convert</a>(xyz);</div>
+<div class="line"><span class="lineno">   45</span>                <span class="keywordflow">if</span> (vertices[j] &lt; <a class="code hl_variable" href="class_s_t_l_file.html#ab2b16bf43b1268c6ad156f3691cc3579">minZ</a>) {</div>
+<div class="line"><span class="lineno">   46</span>                    <a class="code hl_variable" href="class_s_t_l_file.html#ab2b16bf43b1268c6ad156f3691cc3579">minZ</a> &gt;&gt; vertices[j];</div>
+<div class="line"><span class="lineno">   47</span>                }</div>
+<div class="line"><span class="lineno">   48</span>                <span class="keywordflow">if</span> (vertices[j] &gt; <a class="code hl_variable" href="class_s_t_l_file.html#a9b2b9056dd419581dc701baf08e5abf0">maxZ</a>) {</div>
+<div class="line"><span class="lineno">   49</span>                    <a class="code hl_variable" href="class_s_t_l_file.html#a9b2b9056dd419581dc701baf08e5abf0">maxZ</a> &gt;&gt; vertices[j];</div>
+<div class="line"><span class="lineno">   50</span>                }</div>
+<div class="line"><span class="lineno">   51</span>            }</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>            <span class="comment">// Skip the attribute byte count (2 bytes)</span></div>
+<div class="line"><span class="lineno">   54</span>            stl_file.ignore(2);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>            <a class="code hl_class" href="class_facet.html">Facet</a> facet(vertices[0], vertices[1], vertices[2]);</div>
+<div class="line"><span class="lineno">   57</span>            facets.push_back(facet);</div>
+<div class="line"><span class="lineno">   58</span>        }</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>        stl_file.close();</div>
+<div class="line"><span class="lineno">   61</span>    }</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">else</span><span class="comment">//Read file in text format</span></div>
+<div class="line"><span class="lineno">   63</span>    {</div>
+<div class="line"><span class="lineno">   64</span>        std::ifstream stl_file(filename);</div>
+<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">if</span> (!stl_file.is_open()) {</div>
+<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Could not open file: &quot;</span> + filename);</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">return</span> facets;</div>
+<div class="line"><span class="lineno">   68</span>        }</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>        std::string line;</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">while</span> (std::getline(stl_file, line)) { <span class="comment">// Read each line</span></div>
+<div class="line"><span class="lineno">   72</span>            <a class="code hl_class" href="class_vector.html">Vector</a> xyz[3];</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>            <span class="keywordflow">if</span> (line.find(<span class="stringliteral">&quot;facet normal&quot;</span>) != std::string::npos) {</div>
+<div class="line"><span class="lineno">   75</span>                <span class="comment">//</span></div>
+<div class="line"><span class="lineno">   76</span>                <span class="comment">//std::istringstream sin(line.substr(line.find(&quot;facet normal&quot;) + 12)); // Initialize with the part after &quot;facet normal&quot;</span></div>
+<div class="line"><span class="lineno">   77</span>                <span class="comment">//sin &gt;&gt; n; // overloaded &gt;&gt; operator</span></div>
+<div class="line"><span class="lineno">   78</span>                std::getline(stl_file, line); <span class="comment">// Skip &quot;outer loop&quot;</span></div>
+<div class="line"><span class="lineno">   79</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++) {</div>
+<div class="line"><span class="lineno">   80</span>                    std::getline(stl_file, line); <span class="comment">// Read vertex</span></div>
+<div class="line"><span class="lineno">   81</span>                    std::istringstream sin(line.substr(line.find(<span class="stringliteral">&quot;vertex&quot;</span>) + 6)); <span class="comment">// Initialize with the part after &quot;facet normal&quot;</span></div>
+<div class="line"><span class="lineno">   82</span>                    sin &gt;&gt; xyz[i];</div>
+<div class="line"><span class="lineno">   83</span>                    <span class="keywordflow">if</span> (xyz[i] &lt; <a class="code hl_variable" href="class_s_t_l_file.html#ab2b16bf43b1268c6ad156f3691cc3579">minZ</a>) {</div>
+<div class="line"><span class="lineno">   84</span>                        <a class="code hl_variable" href="class_s_t_l_file.html#ab2b16bf43b1268c6ad156f3691cc3579">minZ</a> &gt;&gt; xyz[i];<span class="comment">//&quot;beletöltöm a Vector &gt;&gt; operatorral a koordinatat&quot;</span></div>
+<div class="line"><span class="lineno">   85</span>                    }</div>
+<div class="line"><span class="lineno">   86</span>                    <span class="keywordflow">if</span> (xyz[i] &gt; <a class="code hl_variable" href="class_s_t_l_file.html#a9b2b9056dd419581dc701baf08e5abf0">maxZ</a>) {</div>
+<div class="line"><span class="lineno">   87</span>                        <a class="code hl_variable" href="class_s_t_l_file.html#a9b2b9056dd419581dc701baf08e5abf0">maxZ</a> &gt;&gt; xyz[i];</div>
+<div class="line"><span class="lineno">   88</span>                    }</div>
+<div class="line"><span class="lineno">   89</span>                }</div>
+<div class="line"><span class="lineno">   90</span>                std::getline(stl_file, line); <span class="comment">// Skip &quot;endloop&quot;</span></div>
+<div class="line"><span class="lineno">   91</span>                std::getline(stl_file, line); <span class="comment">// Skip &quot;endfacet&quot;</span></div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>                <a class="code hl_class" href="class_facet.html">Facet</a> facet(xyz[0], xyz[1], xyz[2]);</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>                facets.push_back(facet);</div>
+<div class="line"><span class="lineno">   96</span>            }</div>
+<div class="line"><span class="lineno">   97</span>        }</div>
+<div class="line"><span class="lineno">   98</span>        stl_file.close();</div>
+<div class="line"><span class="lineno">   99</span>    }</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordflow">return</span> facets;</div>
+<div class="line"><span class="lineno">  101</span>}</div>
+<div class="ttc" id="aclass_facet_html"><div class="ttname"><a href="class_facet.html">Facet</a></div><div class="ttdoc">Represents a facet in a 3D model.</div><div class="ttdef"><b>Definition</b> <a href="_facet_8h_source.html#l00014">Facet.h:15</a></div></div>
+<div class="ttc" id="aclass_s_t_l_file_html_a70051ce594359a89af68af24680dbd26"><div class="ttname"><a href="class_s_t_l_file.html#a70051ce594359a89af68af24680dbd26">STLFile::isBinarySTL</a></div><div class="ttdeci">static bool isBinarySTL(const std::string &amp;filename)</div><div class="ttdoc">Checks if the file is in binary STL format.</div><div class="ttdef"><b>Definition</b> <a href="_s_t_l_file_8cpp_source.html#l00109">STLFile.cpp:109</a></div></div>
+<div class="ttc" id="aclass_s_t_l_file_html_a9b2b9056dd419581dc701baf08e5abf0"><div class="ttname"><a href="class_s_t_l_file.html#a9b2b9056dd419581dc701baf08e5abf0">STLFile::maxZ</a></div><div class="ttdeci">static double maxZ</div><div class="ttdef"><b>Definition</b> <a href="_s_t_l_file_8h_source.html#l00014">STLFile.h:14</a></div></div>
+<div class="ttc" id="aclass_s_t_l_file_html_ab2b16bf43b1268c6ad156f3691cc3579"><div class="ttname"><a href="class_s_t_l_file.html#ab2b16bf43b1268c6ad156f3691cc3579">STLFile::minZ</a></div><div class="ttdeci">static double minZ</div><div class="ttdef"><b>Definition</b> <a href="_s_t_l_file_8h_source.html#l00013">STLFile.h:13</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">The Vector class represents a 3D vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00007">Vector.h:8</a></div></div>
+<div class="ttc" id="aclass_vector_html_a61fa9ad2db52723de0ee34ecbbe83724"><div class="ttname"><a href="class_vector.html#a61fa9ad2db52723de0ee34ecbbe83724">Vector::read</a></div><div class="ttdeci">void read(std::istream &amp;is=std::cin)</div><div class="ttdoc">Reads a Vector from input stream.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8cpp_source.html#l00055">Vector.cpp:55</a></div></div>
+<div class="ttc" id="aclass_vector_html_ad90e14b6e298f246cb7a46e8a3aef6e2"><div class="ttname"><a href="class_vector.html#ad90e14b6e298f246cb7a46e8a3aef6e2">Vector::convert</a></div><div class="ttdeci">void convert(const float *arr)</div><div class="ttdoc">Converts the coordinates from float array to double.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8cpp_source.html#l00151">Vector.cpp:151</a></div></div>
+</div><!-- fragment -->
 <p class="reference">References <a class="el" href="_vector_8cpp_source.html#l00151">Vector::convert()</a>, <a class="el" href="_s_t_l_file_8cpp_source.html#l00109">isBinarySTL()</a>, <a class="el" href="_s_t_l_file_8h_source.html#l00014">maxZ</a>, <a class="el" href="_s_t_l_file_8h_source.html#l00013">minZ</a>, and <a class="el" href="_vector_8cpp_source.html#l00055">Vector::read()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_cgraph.png" border="0" usemap="#aclass_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_cgraph" alt=""/></div>
-<map name="aclass_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_cgraph" id="aclass_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_cgraph">
-<area shape="rect" title="Reads the STL file in binary or text format." alt="" coords="5,56,148,83"/>
-<area shape="rect" href="class_vector.html#ad90e14b6e298f246cb7a46e8a3aef6e2" title="Converts the coordinates from float array to double." alt="" coords="213,5,322,32"/>
-<area shape="poly" title=" " alt="" coords="129,53,199,34,200,39,130,58"/>
-<area shape="rect" href="class_s_t_l_file.html#a70051ce594359a89af68af24680dbd26" title="Checks if the file is in binary STL format." alt="" coords="196,56,339,83"/>
-<area shape="poly" title=" " alt="" coords="148,67,180,67,180,72,148,72"/>
-<area shape="rect" href="class_vector.html#a61fa9ad2db52723de0ee34ecbbe83724" title="Reads a Vector from input stream." alt="" coords="221,107,314,133"/>
-<area shape="poly" title=" " alt="" coords="130,81,207,101,205,106,129,86"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_cgraph.svg" width="344" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_icgraph.png" border="0" usemap="#aclass_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_icgraph" alt=""/></div>
-<map name="aclass_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_icgraph" id="aclass_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_icgraph">
-<area shape="rect" title="Reads the STL file in binary or text format." alt="" coords="103,5,245,32"/>
-<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function of the program." alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b_icgraph.svg" width="251" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -275,6 +370,8 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_s_t_l_file_8h_source.html#l00014">14</a> of file <a class="el" href="_s_t_l_file_8h_source.html">STLFile.h</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>, and <a class="el" href="_s_t_l_file_8cpp_source.html#l00014">readSTLFile()</a>.</p>
+
 </div>
 </div>
 <a id="ab2b16bf43b1268c6ad156f3691cc3579" name="ab2b16bf43b1268c6ad156f3691cc3579"></a>
@@ -299,6 +396,8 @@ Here is the caller graph for this function:</div>
 <p>The minimum Z coordinate value in the STL file. </p>
 
 <p class="definition">Definition at line <a class="el" href="_s_t_l_file_8h_source.html#l00013">13</a> of file <a class="el" href="_s_t_l_file_8h_source.html">STLFile.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>, and <a class="el" href="_s_t_l_file_8cpp_source.html#l00014">readSTLFile()</a>.</p>
 
 </div>
 </div>

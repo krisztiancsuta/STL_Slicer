@@ -41,7 +41,7 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ std::vector<Facet>\ facets\ =\ \mbox{\hyperlink{class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b}{STLFile::readSTLFile}}(argv[1]);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\ =\ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{STLFile::maxZ}};}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min\ =\ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{STLFile::minZ}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ std::string\ filename\ =\ std::string(argv[1]);}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ dotPos\ =\ filename.find\_last\_of(\textcolor{stringliteral}{"{}."{}});}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dotPos\ !=\ std::string::npos)\ \{}
@@ -62,11 +62,11 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plane}{Plane}}\ cutter(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ i),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1));}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Section>\ sections\_per\_level;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ \_WIN32}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}cls"{}});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#else}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}clear"{}});}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}clear"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Slicing:\ "{}}\ <<\ argv[1]\ <<\ std::endl;}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Progress\ "{}}\ <<\ std::ceil((i\ /\ max)\ *\ 100)\ <<\ \textcolor{stringliteral}{"{}\%"{}}\ <<\ std::flush;}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ }

@@ -9,6 +9,16 @@ Represents a section defined by two vectors.
 
 {\ttfamily \#include $<$Section.\+h$>$}
 
+
+
+Collaboration diagram for Section\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{class_section__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,6 +64,15 @@ Default constructor for \doxylink{class_section}{Section}.
 Definition at line \mbox{\hyperlink{_section_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ section\ with\ two\ vectors}}
+\DoxyCodeLine{00024\ \ \ \ \ section[0]\ =\ v1;}
+\DoxyCodeLine{00025\ \ \ \ \ section[1]\ =\ v2;}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_section_ab0d638c91e4f32fcc7d7505d77f9892c}\label{class_section_ab0d638c91e4f32fcc7d7505d77f9892c} 
@@ -78,6 +97,19 @@ True if the endpoint of the first vector is equal to the starting point of the s
 
 Definition at line \mbox{\hyperlink{_section_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (section[1]\ ==\ rs.section[1])\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ sections\ are\ facing\ each\ other,\ swap\ the\ coordinates\ of\ rs}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ tmp\ =\ rs.section[0];}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ rs.section[0]\ =\ rs.section[1];}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ rs.section[1]\ =\ tmp;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ section[1]\ ==\ rs.section[0];\ \textcolor{comment}{//\ Return\ true\ if\ v2\ =\ rs.v1}}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_section_aa047eb2f2ca15c8be94d327604169e0d}\label{class_section_aa047eb2f2ca15c8be94d327604169e0d} 
 \index{Section@{Section}!operator==@{operator==}}
 \index{operator==@{operator==}!Section@{Section}}
@@ -100,6 +132,14 @@ True if the sections are equal, false otherwise.
 
 Definition at line \mbox{\hyperlink{_section_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ two\ sections\ are\ equal\ by\ comparing\ their\ vectors}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ section[0]\ ==\ other.section[0]\ \&\&\ section[1]\ ==\ other.section[1];}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
 \Hypertarget{class_section_a835a554a53f6b51ef859a2b82c81aa87}\label{class_section_a835a554a53f6b51ef859a2b82c81aa87} 
 \index{Section@{Section}!PlaneInterSection@{PlaneInterSection}}
 \index{PlaneInterSection@{PlaneInterSection}!Section@{Section}}
@@ -125,17 +165,41 @@ The intersection point as a \doxylink{class_vector}{Vector}.
 Definition at line \mbox{\hyperlink{_section_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ intersection\ point\ between\ the\ section\ and\ a\ plane}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{comment}{//\ using\ the\ formula:\ t\ =\ dot(ref\_point\ -\/\ v1,\ normal)\ /\ dot(v2\ -\/\ v1,\ normal)}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ \mbox{\hyperlink{class_vector_adde9f0c3b971af3446d7414a0463a01f}{Vector::dot}}(plane.\mbox{\hyperlink{class_plane_aa6f76844fc03732fb917012dc3de43dc}{getRef}}()\ -\/\ section[0],\ plane.\mbox{\hyperlink{class_plane_afc07a77fb09621deceedc9f855787bf1}{getNormal}}())\ /}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector_adde9f0c3b971af3446d7414a0463a01f}{Vector::dot}}((section[1]\ -\/\ section[0]),\ plane.\mbox{\hyperlink{class_plane_afc07a77fb09621deceedc9f855787bf1}{getNormal}}());}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ <=\ 0\ ||\ t\ >=\ 1)\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ isValidPoint\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ intersection\ point}}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ result\ =\ section[0]\ +\ \mbox{\hyperlink{class_vector}{Vector}}((section[1]\ -\/\ section[0])\ *\ t);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}
+
 
 References \mbox{\hyperlink{_vector_8cpp_source_l00021}{Vector\+::dot()}}, \mbox{\hyperlink{_plane_8h_source_l00031}{Plane\+::get\+Normal()}}, and \mbox{\hyperlink{_plane_8h_source_l00025}{Plane\+::get\+Ref()}}.
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}, and \mbox{\hyperlink{_facet_8cpp_source_l00011}{Facet\+::\+Plane\+Intersection()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=339pt]{class_section_a835a554a53f6b51ef859a2b82c81aa87_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -161,7 +225,26 @@ Prints the section to the specified output stream.
 
 Definition at line \mbox{\hyperlink{_section_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_section_8cpp_source}{Section.\+cpp}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\&os\ !=\ \&std::cout)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ writing\ to\ a\ file,\ only\ output\ the\ second\ vector\ of\ the\ section}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ os\ <<\ section[1];}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ writing\ to\ std::cout,\ output\ both\ vectors\ of\ the\ section}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Section\ v1:"{}}\ <<\ section[0]\ <<\ \textcolor{stringliteral}{"{}\ ,v2:"{}}\ <<\ section[1];}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_section_8cpp_source_l00041}{operator$<$$<$()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

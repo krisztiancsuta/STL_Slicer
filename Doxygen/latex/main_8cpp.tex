@@ -10,7 +10,8 @@
 {\ttfamily \#include "{}Gcode.\+h"{}}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
-Include dependency graph for main.\+cpp\+:\nopagebreak
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -68,10 +69,112 @@ int The exit status of the program.
 Definition at line \mbox{\hyperlink{main_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 3)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ <filename>\ <layer\ resolution>\ (in\ mm)\(\backslash\)n\ Example:\ ./main\ test.stl\ 0.2"{}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00028\ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ layerres\ =\ std::stod(argv[2]);}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#if\ DEBUG }}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ v1(1,\ 0,\ 0);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ v2(2,\ 1,\ 0);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_vector_adde9f0c3b971af3446d7414a0463a01f}{Vector::dot}}(v1,\ v2)\ <<\ std::endl;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}{Vector::cross}}(v1,\ v2)\ <<\ std::endl;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::cout\ <<\ v2\ -\/\ v1\ <<\ std::endl;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::cout\ <<\ v1.\mbox{\hyperlink{class_vector_a60195b4feaa74f1578c0f4f984dce081}{getLength}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plane}{Plane}}\ cutter(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}\ szakasz(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 2));}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ p\ =\ szakasz.PlaneInterSection(cutter);}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#elif\ !DEBUG }}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1)\ Read\ facets\ from\ an\ STL\ file.\ Input:\ STL\ file,\ Output:\ vector\ of\ Facets.}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ Then\ in\ a\ loop:}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::vector<Facet>\ facets\ =\ \mbox{\hyperlink{class_s_t_l_file_a459673a6261deda3fc8b820d03a7570b}{STLFile::readSTLFile}}(argv[1]);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\ =\ \mbox{\hyperlink{class_s_t_l_file_a9b2b9056dd419581dc701baf08e5abf0}{STLFile::maxZ}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min\ =\ \mbox{\hyperlink{class_s_t_l_file_ab2b16bf43b1268c6ad156f3691cc3579}{STLFile::minZ}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::string\ filename\ =\ std::string(argv[1]);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ dotPos\ =\ filename.find\_last\_of(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dotPos\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ filename.substr(0,\ dotPos);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ filename\ +=\ \textcolor{stringliteral}{"{}.gcode"{}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ gcode\ and\ write\ starting\ lines\ into\ it.}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::ofstream\ gcode(filename);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gcode.fail())}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Error\ writing\ file:\ "{}}\ +\ filename\ +\ \textcolor{stringliteral}{"{}.gcode"{}});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::string\ start\ =\ \textcolor{stringliteral}{"{}G28;Home\(\backslash\)nG1\ Z20\ F6000;Move\ the\ platform\ down\ 20mm\(\backslash\)n"{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::string\ stop\ =\ \textcolor{stringliteral}{"{}G28\ X0\ Y0;"{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ gcode\ <<\ start\ <<\ std::endl;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{double}\ i\ =\ min;\ i\ <=\ max;\ i\ =\ i\ +\ layerres)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_plane}{Plane}}\ cutter(\mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ i),\ \mbox{\hyperlink{class_vector}{Vector}}(0,\ 0,\ 1));}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Section>\ sections\_per\_level;}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ \_WIN32 }}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#else }}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ std::system(\textcolor{stringliteral}{"{}clear"{}});}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Slicing:\ "{}}\ <<\ argv[1]\ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Progress\ "{}}\ <<\ std::ceil((i\ /\ max)\ *\ 100)\ <<\ \textcolor{stringliteral}{"{}\%"{}}\ <<\ std::flush;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2)\ Generate\ sections\ (not\ straight\ lines,\ but\ sections)\ from\ facets\ and\ cutting\ plane.\ Inputs:}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ vector\ of\ Facets,\ cutting\ plane.\ Output:\ vector\ of\ Sections.}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ j\ =\ 0;\ j\ <\ facets.size();\ j++)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidSection\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}\ tmp\ =\ facets[j].PlaneIntersection(cutter,\ isValidSection);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isValidSection)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\(\backslash\)t"{}\ <<\ facets[j]\ <<\ std::endl;}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}\(\backslash\)t\(\backslash\)t"{}\ <<\ tmp\ <<\ std::endl;}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sections\_per\_level.push\_back(tmp);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3)Sort\ sections\ for\ optimal\ traversal\ (only\ for\ speed,\ it\ is\ printable\ without\ sorting)}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}{Gcode::SortSections}}(sections\_per\_level);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (unsigned\ i\ =\ 0;\ i\ <\ sections\_per\_level.size();\ i++) }}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{ }}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}\(\backslash\)t"{}\ <<\ sections\_per\_level[i]\ <<\ std::endl; }}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \} }}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4)\ Generate\ gcode\ for\ one\ layer}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}{Gcode::WriteGcode}}(gcode,\ sections\_per\_level);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ gcode\ <<\ stop\ <<\ std::endl;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::invalid\_argument\&\ ia)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Invalid\ argument\ please\ enter\ a\ valid\ double\ value!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ <filename>\ <layer\ resolution>\ (in\ mm)"{}}\ <<\ std::endl\ <<\ \textcolor{stringliteral}{"{}Example:\ ./main\ test.stl\ 0.2"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ exc)}
+\DoxyCodeLine{00115\ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Caught\ exception:\ "{}}\ <<\ exc.what()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}
+
 
 References \mbox{\hyperlink{_vector_8cpp_source_l00031}{Vector\+::cross()}}, \mbox{\hyperlink{_vector_8cpp_source_l00021}{Vector\+::dot()}}, \mbox{\hyperlink{_vector_8cpp_source_l00011}{Vector\+::get\+Length()}}, \mbox{\hyperlink{_s_t_l_file_8h_source_l00014}{STLFile\+::maxZ}}, \mbox{\hyperlink{_s_t_l_file_8h_source_l00013}{STLFile\+::minZ}}, \mbox{\hyperlink{_section_8cpp_source_l00007}{Section\+::\+Plane\+Inter\+Section()}}, \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{STLFile\+::read\+STLFile()}}, \mbox{\hyperlink{_gcode_8cpp_source_l00008}{Gcode\+::\+Sort\+Sections()}}, and \mbox{\hyperlink{_gcode_8cpp_source_l00021}{Gcode\+::\+Write\+Gcode()}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

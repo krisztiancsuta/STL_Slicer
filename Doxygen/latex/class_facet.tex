@@ -9,6 +9,16 @@ Represents a facet in a 3D model.
 
 {\ttfamily \#include $<$Facet.\+h$>$}
 
+
+
+Collaboration diagram for Facet\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{class_facet__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,6 +69,11 @@ Constructs a \doxylink{class_facet}{Facet} object with three vertices.
 Definition at line \mbox{\hyperlink{_facet_8h_source_l00027}{27}} of file \mbox{\hyperlink{_facet_8h_source}{Facet.\+h}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ verteces[0]\ =\ a;\ verteces[1]\ =\ b;\ verteces[2]\ =\ c;\ \};}
+
+\end{DoxyCode}
+
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_facet_a06878114e2ec85eaeeeb0e0589f6e203}\label{class_facet_a06878114e2ec85eaeeeb0e0589f6e203} 
@@ -86,10 +101,59 @@ The intersection section of the facet and the plane.
 Definition at line \mbox{\hyperlink{_facet_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_facet_8cpp_source}{Facet.\+cpp}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ intersection\ of\ the\ facet\ and\ a\ plane}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ and\ return\ a\ section\ representing\ the\ intersection}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Create\ sections\ between\ each\ pair\ of\ vertices}}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}\ Sections[3]\ =\ \{\ \mbox{\hyperlink{class_section}{Section}}(verteces[0],\ verteces[1]),}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}(verteces[0],\ verteces[2]),}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_section}{Section}}(verteces[1],\ verteces[2])\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ section\_points[2];}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ j\ =\ 0;\ \textcolor{comment}{//\ Count\ the\ number\ of\ intersection\ points}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Iterate\ over\ each\ section}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidPoint\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector}}\ tmp\ =\ Sections[i].\mbox{\hyperlink{class_section_a835a554a53f6b51ef859a2b82c81aa87}{PlaneInterSection}}(plane,\ isValidPoint);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isValidPoint)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ 0)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ section\_points[j++]\ =\ tmp;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ intersection\ point\ is\ already\ in\ the\ section}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isSimilar\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ j;\ k++)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tmp\ ==\ section\_points[k])\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ isSimilar\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isSimilar)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ section\_points[j++]\ =\ tmp;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ there\ are\ exactly\ 2\ intersection\ points}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ !=\ 2)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ isValidSection\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_section}{Section}}(section\_points[0],\ section\_points[1]);}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+
 
 References \mbox{\hyperlink{_section_8cpp_source_l00007}{Section\+::\+Plane\+Inter\+Section()}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -116,6 +180,13 @@ Prints the facet to the specified output stream.
 Definition at line \mbox{\hyperlink{_facet_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_facet_8cpp_source}{Facet.\+cpp}}.
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Facet\ A:"{}}\ <<\ verteces[0]\ <<\ \textcolor{stringliteral}{"{}\ ,B:"{}}\ <<\ verteces[1]\ <<\ \textcolor{stringliteral}{"{}\ ,C:"{}}\ <<\ verteces[2];}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}
+
 
 \doxysubsection{Friends And Related Symbol Documentation}
 \Hypertarget{class_facet_a258599c44ba76ca13ba101b62f92f56a}\label{class_facet_a258599c44ba76ca13ba101b62f92f56a} 
@@ -128,6 +199,14 @@ Definition at line \mbox{\hyperlink{_facet_8cpp_source_l00056}{56}} of file \mbo
 
 Definition at line \mbox{\hyperlink{_facet_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_facet_8cpp_source}{Facet.\+cpp}}.
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ f.\mbox{\hyperlink{class_facet_a121d9745dcfcdd013e7e85200bd416f7}{print}}(os);}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

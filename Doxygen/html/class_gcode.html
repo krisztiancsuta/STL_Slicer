@@ -100,6 +100,11 @@ $(document).ready(function(){initNavTree('class_gcode.html',''); initResizable()
  <a href="class_gcode.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_gcode_8h_source.html">Gcode.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Gcode:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_gcode__coll__graph.svg" width="118" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -148,15 +153,23 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gcode_8cpp_source.html#l00008">8</a> of file <a class="el" href="_gcode_8cpp_source.html">Gcode.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    8</span>                                                     {</div>
+<div class="line"><span class="lineno">    9</span>    <span class="comment">// Select the first section</span></div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; sections.size(); i++) {</div>
+<div class="line"><span class="lineno">   11</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> j = i + 1; j &lt; sections.size(); j++) {</div>
+<div class="line"><span class="lineno">   12</span>            <span class="keywordflow">if</span> (sections[i] &lt;&lt;= sections[j]) { <span class="comment">// If the two sections can be concatenated</span></div>
+<div class="line"><span class="lineno">   13</span>                <span class="comment">// Swap sections[j] with sections[i+1]</span></div>
+<div class="line"><span class="lineno">   14</span>                std::swap(sections[i + 1], sections[j]);</div>
+<div class="line"><span class="lineno">   15</span>            }</div>
+<div class="line"><span class="lineno">   16</span>        }</div>
+<div class="line"><span class="lineno">   17</span>    }</div>
+<div class="line"><span class="lineno">   18</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph.png" border="0" usemap="#aclass_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph" alt=""/></div>
-<map name="aclass_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph" id="aclass_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph">
-<area shape="rect" title="Sorts the sections in order to create a continuous path for the printer." alt="" coords="103,5,245,32"/>
-<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function of the program." alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph.svg" width="251" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -205,15 +218,19 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gcode_8cpp_source.html#l00021">21</a> of file <a class="el" href="_gcode_8cpp_source.html">Gcode.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                                                            {</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">unsigned</span> i;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">for</span> (i = 0; i &lt; sections.size(); i++) {</div>
+<div class="line"><span class="lineno">   24</span>        gcode &lt;&lt; <span class="stringliteral">&quot;G1 F1500&quot;</span> &lt;&lt; sections[i] &lt;&lt; <span class="stringliteral">&quot; E&quot;</span> &lt;&lt; (i + 1) &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   25</span>    }</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00021">main()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_gcode_aa7d93cf741b2417001a4bec84ae69a0a_icgraph.png" border="0" usemap="#aclass_gcode_aa7d93cf741b2417001a4bec84ae69a0a_icgraph" alt=""/></div>
-<map name="aclass_gcode_aa7d93cf741b2417001a4bec84ae69a0a_icgraph" id="aclass_gcode_aa7d93cf741b2417001a4bec84ae69a0a_icgraph">
-<area shape="rect" title="Writes one layer of the sliced 3D model into gcode." alt="" coords="103,5,239,32"/>
-<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function of the program." alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_gcode_aa7d93cf741b2417001a4bec84ae69a0a_icgraph.svg" width="244" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
