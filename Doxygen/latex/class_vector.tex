@@ -11,8 +11,7 @@ The \doxylink{class_vector}{Vector} class represents a 3D vector.
 
 
 
-Collaboration diagram for Vector\+:
-\nopagebreak
+Collaboration diagram for Vector\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,7 +21,7 @@ Collaboration diagram for Vector\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c}{Vector}} (double x=999, double y=999, double z=999)
+\mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}} (double x=0, double y=0, double z=0)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_vector}{Vector} class. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_vector_a60195b4feaa74f1578c0f4f984dce081}{get\+Length}} () const
 \begin{DoxyCompactList}\small\item\em Returns the length of the \doxylink{class_vector}{Vector}. \end{DoxyCompactList}\item 
@@ -54,7 +53,7 @@ static \mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a23
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_vector_a94a1ed1b2fe807a44c29766d78ade25c}{operator$>$$>$}} (double \&, \mbox{\hyperlink{class_vector}{Vector}} const \&)
+void \mbox{\hyperlink{class_vector_a98827a80896b9d39b84000a446f4d7cc}{operator$>$$>$}} (double \&d, \mbox{\hyperlink{class_vector}{Vector}} const \&v)
 \begin{DoxyCompactList}\small\item\em Streams the Z coordinate into the double. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -66,11 +65,11 @@ Definition at line \mbox{\hyperlink{_vector_8h_source_l00007}{7}} of file \mbox{
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c}\label{class_vector_a0a41a5d0a5cf8d89ff507fd33172c07c} 
-\index{Vector@{Vector}!Vector@{Vector}}
+\Hypertarget{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}\index{Vector@{Vector}!Vector@{Vector}}
 \index{Vector@{Vector}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{Vector()}{Vector()}}
-{\footnotesize\ttfamily Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{double}]{x = {\ttfamily 999},  }\item[{double}]{y = {\ttfamily 999},  }\item[{double}]{z = {\ttfamily 999} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2} 
+Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{double}]{x}{ = {\ttfamily 0}, }\item[{double}]{y}{ = {\ttfamily 0}, }\item[{double}]{z}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -100,12 +99,23 @@ Definition at line \mbox{\hyperlink{_vector_8h_source_l00020}{20}} of file \mbox
 \end{DoxyCode}
 
 
+Referenced by \mbox{\hyperlink{_vector_8cpp_source_l00031}{cross()}}, \mbox{\hyperlink{_vector_8cpp_source_l00095}{operator+()}}, and \mbox{\hyperlink{_vector_8cpp_source_l00086}{operator-\/()}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2_icgraph}
+\end{center}
+\end{figure}
+
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}\label{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2} 
-\index{Vector@{Vector}!convert@{convert}}
+\Hypertarget{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2}\index{Vector@{Vector}!convert@{convert}}
 \index{convert@{convert}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{convert()}{convert()}}
-{\footnotesize\ttfamily void Vector\+::convert (\begin{DoxyParamCaption}\item[{const float \texorpdfstring{$\ast$}{*}}]{arr }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2} 
+void Vector\+::convert (\begin{DoxyParamCaption}\item[{const float \texorpdfstring{$\ast$}{*}}]{arr}{}\end{DoxyParamCaption})}
 
 
 
@@ -137,19 +147,18 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00151}{151}} of file \m
 
 Referenced by \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{STLFile\+::read\+STLFile()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_vector_ad90e14b6e298f246cb7a46e8a3aef6e2_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}\label{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf} 
-\index{Vector@{Vector}!cross@{cross}}
+\Hypertarget{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}\index{Vector@{Vector}!cross@{cross}}
 \index{cross@{cross}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{cross()}{cross()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Vector\+::cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{n1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf} 
+\mbox{\hyperlink{class_vector}{Vector}} Vector\+::cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{n1}{, }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{n2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -184,7 +193,7 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00031}{31}} of file \mb
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(n1.XYZ[1]\ *\ n2.XYZ[2]\ -\/\ n1.XYZ[2]\ *\ n2.XYZ[1],}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}}(n1.XYZ[1]\ *\ n2.XYZ[2]\ -\/\ n1.XYZ[2]\ *\ n2.XYZ[1],}
 \DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ n1.XYZ[2]\ *\ n2.XYZ[0]\ -\/\ n1.XYZ[0]\ *\ n2.XYZ[2],}
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ n1.XYZ[0]\ *\ n2.XYZ[1]\ -\/\ n1.XYZ[1]\ *\ n2.XYZ[0]);}
 \DoxyCodeLine{00035\ \}}
@@ -192,21 +201,31 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00031}{31}} of file \mb
 \end{DoxyCode}
 
 
+References \mbox{\hyperlink{_vector_8h_source_l00020}{Vector()}}.
+
+
+
 Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=228pt]{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_vector_adde9f0c3b971af3446d7414a0463a01f}\label{class_vector_adde9f0c3b971af3446d7414a0463a01f} 
-\index{Vector@{Vector}!dot@{dot}}
+\Hypertarget{class_vector_adde9f0c3b971af3446d7414a0463a01f}\index{Vector@{Vector}!dot@{dot}}
 \index{dot@{dot}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{dot()}{dot()}}
-{\footnotesize\ttfamily double Vector\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{class_vector_adde9f0c3b971af3446d7414a0463a01f} 
+double Vector\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v1}{, }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -249,19 +268,18 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00021}{21}} of file \mb
 
 Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}, and \mbox{\hyperlink{_section_8cpp_source_l00007}{Section\+::\+Plane\+Inter\+Section()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_vector_adde9f0c3b971af3446d7414a0463a01f_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_vector_a60195b4feaa74f1578c0f4f984dce081}\label{class_vector_a60195b4feaa74f1578c0f4f984dce081} 
-\index{Vector@{Vector}!getLength@{getLength}}
+\Hypertarget{class_vector_a60195b4feaa74f1578c0f4f984dce081}\index{Vector@{Vector}!getLength@{getLength}}
 \index{getLength@{getLength}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
-{\footnotesize\ttfamily double Vector\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_a60195b4feaa74f1578c0f4f984dce081} 
+double Vector\+::get\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -289,19 +307,18 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00011}{11}} of file \mb
 
 Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=246pt]{class_vector_a60195b4feaa74f1578c0f4f984dce081_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_vector_aad249888c83dd2c8c6000d0c6d683fac}\label{class_vector_aad249888c83dd2c8c6000d0c6d683fac} 
-\index{Vector@{Vector}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\Hypertarget{class_vector_aad249888c83dd2c8c6000d0c6d683fac}\index{Vector@{Vector}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
 \index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} \& Vector\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_vector_aad249888c83dd2c8c6000d0c6d683fac} 
+\mbox{\hyperlink{class_vector}{Vector}} \& Vector\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption})}
 
 
 
@@ -339,11 +356,11 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00131}{131}} of file \m
 \DoxyCodeLine{00136\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_vector_ae62844b362fd8c0680d28c76feca6221}\label{class_vector_ae62844b362fd8c0680d28c76feca6221} 
-\index{Vector@{Vector}!operator+@{operator+}}
+\Hypertarget{class_vector_ae62844b362fd8c0680d28c76feca6221}\index{Vector@{Vector}!operator+@{operator+}}
 \index{operator+@{operator+}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Vector\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{B }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_ae62844b362fd8c0680d28c76feca6221} 
+\mbox{\hyperlink{class_vector}{Vector}} Vector\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{B}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -374,15 +391,26 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00095}{95}} of file \mb
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(XYZ[0]\ +\ B.XYZ[0],\ XYZ[1]\ +\ B.XYZ[1],\ XYZ[2]\ +\ B.XYZ[2]);}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}}(XYZ[0]\ +\ B.XYZ[0],\ XYZ[1]\ +\ B.XYZ[1],\ XYZ[2]\ +\ B.XYZ[2]);}
 \DoxyCodeLine{00097\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_vector_a449091b284984dc0768a4380b05f81d3}\label{class_vector_a449091b284984dc0768a4380b05f81d3} 
-\index{Vector@{Vector}!operator-\/@{operator-\/}}
+
+
+References \mbox{\hyperlink{_vector_8h_source_l00020}{Vector()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{class_vector_ae62844b362fd8c0680d28c76feca6221_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_a449091b284984dc0768a4380b05f81d3}\index{Vector@{Vector}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{B }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_a449091b284984dc0768a4380b05f81d3} 
+\mbox{\hyperlink{class_vector}{Vector}} Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{B}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -413,15 +441,26 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00086}{86}} of file \mb
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(XYZ[0]\ -\/\ B.XYZ[0],\ XYZ[1]\ -\/\ B.XYZ[1],\ XYZ[2]\ -\/\ B.XYZ[2]);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}}(XYZ[0]\ -\/\ B.XYZ[0],\ XYZ[1]\ -\/\ B.XYZ[1],\ XYZ[2]\ -\/\ B.XYZ[2]);}
 \DoxyCodeLine{00088\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_vector_aba7123e2b03c93a1d226ac911db13155}\label{class_vector_aba7123e2b03c93a1d226ac911db13155} 
-\index{Vector@{Vector}!operator$<$@{operator$<$}}
+
+
+References \mbox{\hyperlink{_vector_8h_source_l00020}{Vector()}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{class_vector_a449091b284984dc0768a4380b05f81d3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_vector_aba7123e2b03c93a1d226ac911db13155}\index{Vector@{Vector}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
-{\footnotesize\ttfamily bool Vector\+::operator$<$ (\begin{DoxyParamCaption}\item[{double \&}]{n }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_aba7123e2b03c93a1d226ac911db13155} 
+bool Vector\+::operator$<$ (\begin{DoxyParamCaption}\item[{double \&}]{n}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -456,11 +495,11 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00104}{104}} of file \m
 \DoxyCodeLine{00106\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_vector_ade5fbd0cd01b034d1907e0c93433320c}\label{class_vector_ade5fbd0cd01b034d1907e0c93433320c} 
-\index{Vector@{Vector}!operator==@{operator==}}
+\Hypertarget{class_vector_ade5fbd0cd01b034d1907e0c93433320c}\index{Vector@{Vector}!operator==@{operator==}}
 \index{operator==@{operator==}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
-{\footnotesize\ttfamily bool Vector\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_ade5fbd0cd01b034d1907e0c93433320c} 
+bool Vector\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -499,11 +538,11 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00143}{143}} of file \m
 
 References \mbox{\hyperlink{_vector_8cpp_source_l00005}{epsilon}}.
 
-\Hypertarget{class_vector_ab089ad650387403b22f729bdaea3d574}\label{class_vector_ab089ad650387403b22f729bdaea3d574} 
-\index{Vector@{Vector}!operator$>$@{operator$>$}}
+\Hypertarget{class_vector_ab089ad650387403b22f729bdaea3d574}\index{Vector@{Vector}!operator$>$@{operator$>$}}
 \index{operator$>$@{operator$>$}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
-{\footnotesize\ttfamily bool Vector\+::operator$>$ (\begin{DoxyParamCaption}\item[{double \&}]{n }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_ab089ad650387403b22f729bdaea3d574} 
+bool Vector\+::operator$>$ (\begin{DoxyParamCaption}\item[{double \&}]{n}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -538,11 +577,11 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00113}{113}} of file \m
 \DoxyCodeLine{00115\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_vector_a361e797b7c226996c3c3b815690aa3ba}\label{class_vector_a361e797b7c226996c3c3b815690aa3ba} 
-\index{Vector@{Vector}!print@{print}}
+\Hypertarget{class_vector_a361e797b7c226996c3c3b815690aa3ba}\index{Vector@{Vector}!print@{print}}
 \index{print@{print}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void Vector\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_vector_a361e797b7c226996c3c3b815690aa3ba} 
+void Vector\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{ = {\ttfamily std\+:\+:cout}}\end{DoxyParamCaption}) const}
 
 
 
@@ -576,19 +615,18 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00041}{41}} of file \mb
 
 Referenced by \mbox{\hyperlink{_vector_8cpp_source_l00065}{operator$<$$<$()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=249pt]{class_vector_a361e797b7c226996c3c3b815690aa3ba_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_vector_a61fa9ad2db52723de0ee34ecbbe83724}\label{class_vector_a61fa9ad2db52723de0ee34ecbbe83724} 
-\index{Vector@{Vector}!read@{read}}
+\Hypertarget{class_vector_a61fa9ad2db52723de0ee34ecbbe83724}\index{Vector@{Vector}!read@{read}}
 \index{read@{read}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{read()}{read()}}
-{\footnotesize\ttfamily void Vector\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is = {\ttfamily std\+:\+:cin} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_vector_a61fa9ad2db52723de0ee34ecbbe83724} 
+void Vector\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is}{ = {\ttfamily std\+:\+:cin}}\end{DoxyParamCaption})}
 
 
 
@@ -616,8 +654,7 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00055}{55}} of file \mb
 
 Referenced by \mbox{\hyperlink{_vector_8cpp_source_l00076}{operator$>$$>$()}}, and \mbox{\hyperlink{_s_t_l_file_8cpp_source_l00014}{STLFile\+::read\+STLFile()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -627,11 +664,11 @@ Here is the caller graph for this function\+:
 
 
 \doxysubsection{Friends And Related Symbol Documentation}
-\Hypertarget{class_vector_a94a1ed1b2fe807a44c29766d78ade25c}\label{class_vector_a94a1ed1b2fe807a44c29766d78ade25c} 
-\index{Vector@{Vector}!operator$>$$>$@{operator$>$$>$}}
+\Hypertarget{class_vector_a98827a80896b9d39b84000a446f4d7cc}\index{Vector@{Vector}!operator$>$$>$@{operator$>$$>$}}
 \index{operator$>$$>$@{operator$>$$>$}!Vector@{Vector}}
 \doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
-{\footnotesize\ttfamily void operator$>$$>$ (\begin{DoxyParamCaption}\item[{double \&}]{d,  }\item[{\mbox{\hyperlink{class_vector}{Vector}} const \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+{\footnotesize\ttfamily \label{class_vector_a98827a80896b9d39b84000a446f4d7cc} 
+void operator$>$$>$ (\begin{DoxyParamCaption}\item[{double \&}]{d}{, }\item[{\mbox{\hyperlink{class_vector}{Vector}} const \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
@@ -663,5 +700,5 @@ Definition at line \mbox{\hyperlink{_vector_8cpp_source_l00122}{122}} of file \m
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_vector_8h}{Vector.\+h}}\item 
-C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_vector_8cpp}{Vector.\+cpp}}\end{DoxyCompactItemize}
+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_vector_8h}{Vector.\+h}}\item 
+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_vector_8cpp}{Vector.\+cpp}}\end{DoxyCompactItemize}

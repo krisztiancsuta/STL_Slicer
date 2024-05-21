@@ -17,7 +17,7 @@ public:
      * @param y The y-coordinate of the vector.
      * @param z The z-coordinate of the vector.
      */
-    Vector(double x = 999, double y = 999, double z = 999)
+    Vector(double x = 0, double y = 0, double z = 0)
     {
         XYZ[0] = x;
         XYZ[1] = y;

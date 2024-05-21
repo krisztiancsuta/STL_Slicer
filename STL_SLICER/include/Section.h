@@ -15,7 +15,7 @@ public:
      * @param v1 The first vector of the section.
      * @param v2 The second vector of the section.
      */
-    Section(Vector v1 = Vector(), Vector v2 = Vector());
+    Section(const Vector& v1 = Vector(), const Vector& v2 = Vector());
 
     /**
      * @brief Calculates the intersection point between the section and a plane.

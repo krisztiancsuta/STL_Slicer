@@ -1,5 +1,5 @@
 \doxysection{Gcode.\+cpp}
-\hypertarget{_gcode_8cpp_source}{}\label{_gcode_8cpp_source}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/Gcode.cpp@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/Gcode.cpp}}
+\hypertarget{_gcode_8cpp_source}{}\label{_gcode_8cpp_source}\index{STL\_SLICER/src/Gcode.cpp@{STL\_SLICER/src/Gcode.cpp}}
 \mbox{\hyperlink{_gcode_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gcode_8h}{Gcode.h}}"{}}}
@@ -29,5 +29,20 @@
 \DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00025}00025\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00026}00026\ }
 \DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00029}\mbox{\hyperlink{class_gcode_a3d4960312d3f002aca9a4abc432e8112}{00029}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gcode_a3d4960312d3f002aca9a4abc432e8112}{Gcode::StartGcode}}(std::ofstream\&\ gcode)\ \{}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00031}00031\ \ \ \ \ std::string\ start\ =\ \textcolor{stringliteral}{"{}G28;Home\(\backslash\)nG1\ Z20\ F6000;Move\ the\ platform\ down\ 20mm\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00032}00032\ \ \ \ \ gcode\ <<\ start\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00035}\mbox{\hyperlink{class_gcode_acb2a2d7d8b7166081e44d4466cf87e50}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gcode_acb2a2d7d8b7166081e44d4466cf87e50}{Gcode::CloseGcode}}(std::ofstream\&\ gcode)\ \{}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00037}00037\ \ \ \ \ std::string\ stop\ =\ \textcolor{stringliteral}{"{}G28\ X0\ Y0;"{}};}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00039}00039\ \ \ \ \ gcode\ <<\ stop\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00040}00040\ \ \ \ \ gcode.close();}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{_gcode_8cpp_source_l00042}00042\ }
 
 \end{DoxyCode}

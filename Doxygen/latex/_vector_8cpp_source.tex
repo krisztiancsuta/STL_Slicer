@@ -1,5 +1,5 @@
 \doxysection{Vector.\+cpp}
-\hypertarget{_vector_8cpp_source}{}\label{_vector_8cpp_source}\index{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/Vector.cpp@{C:/Users/krisz/Documents/GitHub/STL\_Slicer/STL\_SLICER/src/Vector.cpp}}
+\hypertarget{_vector_8cpp_source}{}\label{_vector_8cpp_source}\index{STL\_SLICER/src/Vector.cpp@{STL\_SLICER/src/Vector.cpp}}
 \mbox{\hyperlink{_vector_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector_8h}{Vector.h}}"{}}}
@@ -17,7 +17,7 @@
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00023}00023\ \}}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00024}00024\ }
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00031}\mbox{\hyperlink{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}{00031}}\ \mbox{\hyperlink{class_vector}{Vector}}\ \mbox{\hyperlink{class_vector_a23b5e0009c60a2b15a6b5dedf06aadcf}{Vector::cross}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ n1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ n2)\ \{}
-\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(n1.XYZ[1]\ *\ n2.XYZ[2]\ -\/\ n1.XYZ[2]\ *\ n2.XYZ[1],}
+\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}}(n1.XYZ[1]\ *\ n2.XYZ[2]\ -\/\ n1.XYZ[2]\ *\ n2.XYZ[1],}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ n1.XYZ[2]\ *\ n2.XYZ[0]\ -\/\ n1.XYZ[0]\ *\ n2.XYZ[2],}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ n1.XYZ[0]\ *\ n2.XYZ[1]\ -\/\ n1.XYZ[1]\ *\ n2.XYZ[0]);}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00035}00035\ \}}
@@ -47,11 +47,11 @@
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00079}00079\ \}}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00080}00080\ }
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00086}\mbox{\hyperlink{class_vector_a449091b284984dc0768a4380b05f81d3}{00086}}\ \mbox{\hyperlink{class_vector}{Vector}}\ \mbox{\hyperlink{class_vector_a449091b284984dc0768a4380b05f81d3}{Vector::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ B)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(XYZ[0]\ -\/\ B.XYZ[0],\ XYZ[1]\ -\/\ B.XYZ[1],\ XYZ[2]\ -\/\ B.XYZ[2]);}
+\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}}(XYZ[0]\ -\/\ B.XYZ[0],\ XYZ[1]\ -\/\ B.XYZ[1],\ XYZ[2]\ -\/\ B.XYZ[2]);}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00088}00088\ \}}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00089}00089\ }
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00095}\mbox{\hyperlink{class_vector_ae62844b362fd8c0680d28c76feca6221}{00095}}\ \mbox{\hyperlink{class_vector}{Vector}}\ \mbox{\hyperlink{class_vector_ae62844b362fd8c0680d28c76feca6221}{Vector::operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector}}\&\ B)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector}{Vector}}(XYZ[0]\ +\ B.XYZ[0],\ XYZ[1]\ +\ B.XYZ[1],\ XYZ[2]\ +\ B.XYZ[2]);}
+\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_vector_aae7788ced072bf8f5bb4b0fcb6fb6ad2}{Vector}}(XYZ[0]\ +\ B.XYZ[0],\ XYZ[1]\ +\ B.XYZ[1],\ XYZ[2]\ +\ B.XYZ[2]);}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00097}00097\ \}}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00098}00098\ }
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00104}\mbox{\hyperlink{class_vector_aba7123e2b03c93a1d226ac911db13155}{00104}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vector_aba7123e2b03c93a1d226ac911db13155}{Vector::operator<}}(\textcolor{keywordtype}{double}\&\ n)\textcolor{keyword}{\ const\ }\{}
@@ -62,7 +62,7 @@
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ XYZ[2]\ >\ n;}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00115}00115\ \}}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00122}\mbox{\hyperlink{class_vector_a94a1ed1b2fe807a44c29766d78ade25c}{00122}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vector_8cpp_a753622da3b06ec980be211efe6c5e3f1}{operator>>}}(\textcolor{keywordtype}{double}\&\ n,\ \mbox{\hyperlink{class_vector}{Vector}}\ \textcolor{keyword}{const}\&\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00122}\mbox{\hyperlink{class_vector_a98827a80896b9d39b84000a446f4d7cc}{00122}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vector_8cpp_a753622da3b06ec980be211efe6c5e3f1}{operator>>}}(\textcolor{keywordtype}{double}\&\ n,\ \mbox{\hyperlink{class_vector}{Vector}}\ \textcolor{keyword}{const}\&\ v)\ \{}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00123}00123\ \ \ \ \ n\ =\ v.XYZ[2];}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00124}00124\ \}}
 \DoxyCodeLine{\Hypertarget{_vector_8cpp_source_l00125}00125\ }

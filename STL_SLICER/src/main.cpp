@@ -56,22 +56,29 @@ int main(int argc, char* argv[])
         std::ofstream gcode(filename);
         if (gcode.fail())
             throw std::runtime_error("Error writing file: " + filename + ".gcode");
-        std::string start = "G28;Home\nG1 Z20 F6000;Move the platform down 20mm\n";
-        std::string stop = "G28 X0 Y0;";
-        gcode << start << std::endl;
+        Gcode::StartGcode(gcode);
 
-
+        std::cout << "Slicing: " << argv[1] << std::endl;
+        std::cout << "Progress:     ";
         for (double i = min; i <= max; i = i + layerres)
         {
             Plane cutter(Vector(0, 0, i), Vector(0, 0, 1));
             std::vector<Section> sections_per_level;
-#ifdef _WIN32
-            std::system("cls");
-#else
-            std::system("clear");
-#endif
-            std::cout << "Slicing: " << argv[1] << std::endl;
-            std::cout << "Progress " << std::ceil((i / max) * 100) << "%" << std::flush;
+
+            // Calculate the percentage and convert it to a string
+            int percentage = std::ceil((i / static_cast<double>(max)) * 100);
+            std::string percentageStr = std::to_string(percentage) + "%";
+
+            // Calculate the number of characters to delete
+            int charsToDelete = percentageStr.length();
+
+            // Print backspaces to delete the previous percentage output
+            for (int j = 0; j < charsToDelete; ++j) {
+                std::cout << '\b';
+            }
+
+            // Print the new percentage
+            std::cout << percentageStr << std::flush;
 
 
             // 2) Generate sections (not straight lines, but sections) from facets and cutting plane. Inputs:
@@ -102,7 +109,8 @@ int main(int argc, char* argv[])
             // 4) Generate gcode for one layer
             Gcode::WriteGcode(gcode, sections_per_level);
         }
-        gcode << stop << std::endl;
+
+        Gcode::CloseGcode(gcode);
 
 #endif
         return 0;

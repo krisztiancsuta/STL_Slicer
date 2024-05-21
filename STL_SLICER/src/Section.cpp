@@ -19,7 +19,7 @@ Vector Section::PlaneInterSection(const Plane& plane, bool& isValidPoint) const 
     return result;
 }
 
-Section::Section(Vector v1, Vector v2) {
+Section::Section(const Vector& v1, const  Vector& v2) {
     // Initialize the section with two vectors
     section[0] = v1;
     section[1] = v2;

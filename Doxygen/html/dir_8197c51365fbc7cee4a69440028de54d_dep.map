@@ -1,8 +1,8 @@
-<map id="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER" name="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER">
-<area shape="rect" id="node2" href="dir_822ebfe2078462b21f4d397b28fd14ae.html" title="include" alt="" coords="26,101,89,128"/>
-<area shape="rect" id="node3" href="dir_cfd08072df3f06b1ba03817e2822d3ea.html" title="obj" alt="" coords="90,27,129,53"/>
-<area shape="rect" id="node4" href="dir_ef90901c961d8c02d6687c57bc1b97ba.html" title="src" alt="" coords="27,27,66,53"/>
-<area shape="poly" id="edge1" href="dir_000002_000000.html" alt="" coords="51,53,56,86,51,86,46,54"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000002_000000.html" title="18" alt="" coords="54,74,68,90"/>
-<area shape="rect" id="clust1" href="dir_8197c51365fbc7cee4a69440028de54d.html" alt="" coords="16,16,261,139"/>
+<map id="STL_SLICER" name="STL_SLICER">
+<area shape="rect" id="node2" href="dir_822ebfe2078462b21f4d397b28fd14ae.html" title="include" alt="" coords="192,100,254,126"/>
+<area shape="rect" id="node3" href="dir_cfd08072df3f06b1ba03817e2822d3ea.html" title="obj" alt="" coords="151,27,190,52"/>
+<area shape="rect" id="node4" href="dir_ef90901c961d8c02d6687c57bc1b97ba.html" title="src" alt="" coords="214,27,253,52"/>
+<area shape="poly" id="edge1" href="dir_000002_000000.html" alt="" coords="234,53,229,85,224,85,229,52"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000002_000000.html" title="18" alt="" coords="229,76,243,91"/>
+<area shape="rect" id="clust1" href="dir_8197c51365fbc7cee4a69440028de54d.html" alt="" coords="16,16,264,137"/>
 </map>

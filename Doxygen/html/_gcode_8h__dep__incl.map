@@ -1,7 +1,7 @@
-<map id="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/Gcode.h" name="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/Gcode.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="104,5,278,64"/>
-<area shape="rect" id="Node000002" href="$_gcode_8cpp.html" title=" " alt="" coords="5,112,180,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,77,121,113,117,110,152,74"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="204,112,378,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,73,266,110,262,113,227,77"/>
+<map id="STL_SLICER/include/Gcode.h" name="STL_SLICER/include/Gcode.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,278,46"/>
+<area shape="rect" id="Node000002" href="$_gcode_8cpp.html" title=" " alt="" coords="5,94,196,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,58,118,96,115,91,165,53"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="220,94,400,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,53,295,91,292,96,241,58"/>
 </map>

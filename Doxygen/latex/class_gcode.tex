@@ -11,8 +11,7 @@ The \doxylink{class_gcode}{Gcode} class provides functions for generating G-\/co
 
 
 
-Collaboration diagram for Gcode\+:
-\nopagebreak
+Collaboration diagram for Gcode\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,8 +21,12 @@ Collaboration diagram for Gcode\+:
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}{Write\+Gcode}} (std\+::ofstream \&ofs, std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ const \&sections)
+static void \mbox{\hyperlink{class_gcode_a3d4960312d3f002aca9a4abc432e8112}{Start\+Gcode}} (std\+::ofstream \&gcode)
 \begin{DoxyCompactList}\small\item\em Writes one layer of the sliced 3D model into gcode. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}{Write\+Gcode}} (std\+::ofstream \&ofs, std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ const \&sections)
+\item 
+static void \mbox{\hyperlink{class_gcode_acb2a2d7d8b7166081e44d4466cf87e50}{Close\+Gcode}} (std\+::ofstream \&gcode)
+\item 
 static void \mbox{\hyperlink{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}{Sort\+Sections}} (std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ \&sections)
 \begin{DoxyCompactList}\small\item\em Sorts the sections in order to create a continuous path for the printer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -31,16 +34,48 @@ static void \mbox{\hyperlink{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}{Sort
 \doxysubsection{Detailed Description}
 The \doxylink{class_gcode}{Gcode} class provides functions for generating G-\/code instructions. 
 
-Definition at line \mbox{\hyperlink{_gcode_8h_source_l00012}{12}} of file \mbox{\hyperlink{_gcode_8h_source}{Gcode.\+h}}.
+Definition at line \mbox{\hyperlink{_gcode_8h_source_l00013}{13}} of file \mbox{\hyperlink{_gcode_8h_source}{Gcode.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}\label{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb} 
-\index{Gcode@{Gcode}!SortSections@{SortSections}}
+\Hypertarget{class_gcode_acb2a2d7d8b7166081e44d4466cf87e50}\index{Gcode@{Gcode}!CloseGcode@{CloseGcode}}
+\index{CloseGcode@{CloseGcode}!Gcode@{Gcode}}
+\doxysubsubsection{\texorpdfstring{CloseGcode()}{CloseGcode()}}
+{\footnotesize\ttfamily \label{class_gcode_acb2a2d7d8b7166081e44d4466cf87e50} 
+void Gcode\+::\+Close\+Gcode (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{gcode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_gcode_8cpp_source}{Gcode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::string\ stop\ =\ \textcolor{stringliteral}{"{}G28\ X0\ Y0;"{}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ gcode\ <<\ stop\ <<\ std::endl;}
+\DoxyCodeLine{00040\ \ \ \ \ gcode.close();}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_gcode_acb2a2d7d8b7166081e44d4466cf87e50_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb}\index{Gcode@{Gcode}!SortSections@{SortSections}}
 \index{SortSections@{SortSections}!Gcode@{Gcode}}
 \doxysubsubsection{\texorpdfstring{SortSections()}{SortSections()}}
-{\footnotesize\ttfamily void Gcode\+::\+Sort\+Sections (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ \&}]{sections }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb} 
+void Gcode\+::\+Sort\+Sections (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ \&}]{sections}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -74,19 +109,18 @@ Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00008}{8}} of file \mbox
 
 Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=260pt]{class_gcode_a3f051399be4a1bb32bbc03740d2a0ebb_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}\label{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a} 
-\index{Gcode@{Gcode}!WriteGcode@{WriteGcode}}
-\index{WriteGcode@{WriteGcode}!Gcode@{Gcode}}
-\doxysubsubsection{\texorpdfstring{WriteGcode()}{WriteGcode()}}
-{\footnotesize\ttfamily void Gcode\+::\+Write\+Gcode (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ const \&}]{sections }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\Hypertarget{class_gcode_a3d4960312d3f002aca9a4abc432e8112}\index{Gcode@{Gcode}!StartGcode@{StartGcode}}
+\index{StartGcode@{StartGcode}!Gcode@{Gcode}}
+\doxysubsubsection{\texorpdfstring{StartGcode()}{StartGcode()}}
+{\footnotesize\ttfamily \label{class_gcode_a3d4960312d3f002aca9a4abc432e8112} 
+void Gcode\+::\+Start\+Gcode (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{gcode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -99,6 +133,37 @@ Writes one layer of the sliced 3D model into gcode.
 {\em sections} & The vector of sections to generate G-\/code from. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_gcode_8cpp_source}{Gcode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ start\ =\ \textcolor{stringliteral}{"{}G28;Home\(\backslash\)nG1\ Z20\ F6000;Move\ the\ platform\ down\ 20mm\(\backslash\)n"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ gcode\ <<\ start\ <<\ std::endl;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_gcode_a3d4960312d3f002aca9a4abc432e8112_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a}\index{Gcode@{Gcode}!WriteGcode@{WriteGcode}}
+\index{WriteGcode@{WriteGcode}!Gcode@{Gcode}}
+\doxysubsubsection{\texorpdfstring{WriteGcode()}{WriteGcode()}}
+{\footnotesize\ttfamily \label{class_gcode_aa7d93cf741b2417001a4bec84ae69a0a} 
+void Gcode\+::\+Write\+Gcode (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofs}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_section}{Section}} $>$ const \&}]{sections}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 
 
 Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_gcode_8cpp_source}{Gcode.\+cpp}}.
@@ -118,8 +183,7 @@ Definition at line \mbox{\hyperlink{_gcode_8cpp_source_l00021}{21}} of file \mbo
 
 Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -130,5 +194,5 @@ Here is the caller graph for this function\+:
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_gcode_8h}{Gcode.\+h}}\item 
-C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_gcode_8cpp}{Gcode.\+cpp}}\end{DoxyCompactItemize}
+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_gcode_8h}{Gcode.\+h}}\item 
+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_gcode_8cpp}{Gcode.\+cpp}}\end{DoxyCompactItemize}

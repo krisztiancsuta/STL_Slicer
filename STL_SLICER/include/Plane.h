@@ -16,7 +16,7 @@ public:
      * @param ref_point The reference point on the plane.
      * @param normal The normal vector of the plane.
      */
-    Plane(Vector ref_point, Vector normal) : ref_point(ref_point), normal(normal) {};
+    Plane(const Vector& ref_point, const Vector& normal) : ref_point(ref_point), normal(normal) {};
 
     /**
      * @brief Gets the reference point of the plane.

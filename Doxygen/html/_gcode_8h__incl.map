@@ -1,22 +1,26 @@
-<map id="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/Gcode.h" name="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/Gcode.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,223,64"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="24,411,96,437"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,67,56,88,33,114,19,135,12,153,8,199,8,276,12,309,21,342,47,396,42,398,16,344,7,310,3,276,3,199,7,152,15,133,29,110,53,84,81,63"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="43,112,98,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,66,91,101,87,98,113,63"/>
-<area shape="rect" id="Node000004" href="$_section_8h.html" title=" " alt="" coords="87,187,164,213"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,65,130,171,124,171,131,64"/>
-<area shape="rect" id="Node000005" href="$_vector_8h.html" title=" " alt="" coords="146,336,217,363"/>
-<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="205,62,233,83,254,110,262,118,272,124,283,129,291,140,295,157,290,186,276,228,250,289,236,311,217,329,213,325,232,308,246,287,271,227,285,185,289,158,286,142,279,133,269,128,259,123,250,114,229,87,201,67"/>
-<area shape="rect" id="Node000007" href="$_facet_8h.html" title=" " alt="" coords="174,112,239,139"/>
-<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="161,63,189,98,185,101,157,66"/>
-<area shape="poly" id="edge8_Node000004_Node000002" title=" " alt="" coords="124,215,70,397,65,395,119,213"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="128,213,129,248,138,287,161,323,156,326,134,289,124,248,122,214"/>
-<area shape="rect" id="Node000006" href="$_plane_8h.html" title=" " alt="" coords="149,261,214,288"/>
-<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="137,212,165,247,160,251,133,216"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="162,366,96,405,93,400,159,361"/>
-<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="184,289,184,320,179,320,179,289"/>
-<area shape="poly" id="edge13_Node000007_Node000004" title=" " alt="" coords="194,141,152,178,149,174,191,137"/>
-<area shape="poly" id="edge11_Node000007_Node000005" title=" " alt="" coords="214,138,224,166,233,204,236,246,229,289,220,309,207,326,203,323,215,306,224,287,231,246,227,204,219,167,209,140"/>
-<area shape="poly" id="edge12_Node000007_Node000006" title=" " alt="" coords="207,140,189,246,183,245,202,139"/>
+<map id="STL_SLICER/include/Gcode.h" name="STL_SLICER/include/Gcode.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="146,5,292,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="20,389,92,414"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,43,91,63,65,77,42,96,24,115,14,133,9,153,8,179,8,255,11,288,20,320,44,374,39,376,15,322,6,289,3,256,3,179,4,152,9,131,20,112,38,92,62,73,89,58,144,38"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="53,94,110,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,49,117,88,114,84,183,44"/>
+<area shape="rect" id="Node000004" href="$_section_8h.html" title=" " alt="" coords="83,168,160,193"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,48,177,95,139,156,134,153,172,93,204,45"/>
+<area shape="rect" id="Node000005" href="$_vector_8h.html" title=" " alt="" coords="143,315,212,341"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="239,45,254,67,266,93,277,126,283,159,275,204,246,268,231,290,211,307,208,304,227,286,242,266,270,202,277,159,272,127,262,95,250,70,234,48"/>
+<area shape="rect" id="Node000007" href="$_facet_8h.html" title=" " alt="" coords="186,94,251,120"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="221,46,221,78,216,78,216,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="337,94,402,120"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="258,44,334,84,332,89,255,49"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="427,94,480,120"/>
+<area shape="poly" id="edge15_Node000001_Node000009" title=" " alt="" coords="278,44,413,89,411,94,276,49"/>
+<area shape="poly" id="edge8_Node000004_Node000002" title=" " alt="" coords="120,194,66,375,61,373,115,193"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="124,194,125,227,134,266,157,302,153,305,130,268,120,228,118,194"/>
+<area shape="rect" id="Node000006" href="$_plane_8h.html" title=" " alt="" coords="145,241,210,267"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="133,192,161,227,156,231,128,195"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="158,344,91,383,88,378,155,339"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="180,267,180,299,175,299,175,267"/>
+<area shape="poly" id="edge13_Node000007_Node000004" title=" " alt="" coords="204,122,151,161,148,156,201,118"/>
+<area shape="poly" id="edge11_Node000007_Node000005" title=" " alt="" coords="224,120,234,184,233,226,225,268,215,288,203,305,198,302,211,285,220,266,228,226,228,184,219,121"/>
+<area shape="poly" id="edge12_Node000007_Node000006" title=" " alt="" coords="218,121,187,227,182,226,213,119"/>
 </map>

@@ -25,3 +25,18 @@ void Gcode::WriteGcode(std::ofstream& gcode, std::vector<Section>const& sections
     }
 
 }
+
+void Gcode::StartGcode(std::ofstream& gcode) {
+
+    std::string start = "G28;Home\nG1 Z20 F6000;Move the platform down 20mm\n";
+    gcode << start << std::endl;
+
+}
+void Gcode::CloseGcode(std::ofstream& gcode) {
+
+    std::string stop = "G28 X0 Y0;";
+
+    gcode << stop << std::endl;
+    gcode.close();
+}
+

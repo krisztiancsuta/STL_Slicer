@@ -1,7 +1,7 @@
-<map id="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/STLFile.h" name="C:/Users/krisz/Documents/GitHub/STL_Slicer/STL_SLICER/include/STLFile.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="102,5,280,64"/>
-<area shape="rect" id="Node000002" href="$_s_t_l_file_8cpp.html" title=" " alt="" coords="5,112,180,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,77,121,113,117,110,152,74"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="204,112,378,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,73,266,110,262,113,227,77"/>
+<map id="STL_SLICER/include/STLFile.h" name="STL_SLICER/include/STLFile.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="138,5,284,46"/>
+<area shape="rect" id="Node000002" href="$_s_t_l_file_8cpp.html" title=" " alt="" coords="5,94,203,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,57,122,96,119,91,171,53"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="227,94,408,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,53,302,91,299,96,247,57"/>
 </map>

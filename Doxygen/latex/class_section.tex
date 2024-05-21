@@ -11,8 +11,7 @@ Represents a section defined by two vectors.
 
 
 
-Collaboration diagram for Section\+:
-\nopagebreak
+Collaboration diagram for Section\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,7 +21,7 @@ Collaboration diagram for Section\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_section_a418187f0b089f2971a3b259cc1d36f8c}{Section}} (\mbox{\hyperlink{class_vector}{Vector}} v1=\mbox{\hyperlink{class_vector}{Vector}}(), \mbox{\hyperlink{class_vector}{Vector}} v2=\mbox{\hyperlink{class_vector}{Vector}}())
+\mbox{\hyperlink{class_section_a2d67f6c4e0c439639c904a1b7eddf6d9}{Section}} (const \mbox{\hyperlink{class_vector}{Vector}} \&v1=\mbox{\hyperlink{class_vector}{Vector}}(), const \mbox{\hyperlink{class_vector}{Vector}} \&v2=\mbox{\hyperlink{class_vector}{Vector}}())
 \begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_section}{Section}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_section_a835a554a53f6b51ef859a2b82c81aa87}{Plane\+Inter\+Section}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane, bool \&is\+Valid\+Point) const
 \begin{DoxyCompactList}\small\item\em Calculates the intersection point between the section and a plane. \end{DoxyCompactList}\item 
@@ -42,11 +41,11 @@ Definition at line \mbox{\hyperlink{_section_8h_source_l00009}{9}} of file \mbox
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_section_a418187f0b089f2971a3b259cc1d36f8c}\label{class_section_a418187f0b089f2971a3b259cc1d36f8c} 
-\index{Section@{Section}!Section@{Section}}
+\Hypertarget{class_section_a2d67f6c4e0c439639c904a1b7eddf6d9}\index{Section@{Section}!Section@{Section}}
 \index{Section@{Section}!Section@{Section}}
 \doxysubsubsection{\texorpdfstring{Section()}{Section()}}
-{\footnotesize\ttfamily Section\+::\+Section (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}}]{v1 = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}()},  }\item[{\mbox{\hyperlink{class_vector}{Vector}}}]{v2 = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}()} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_section_a2d67f6c4e0c439639c904a1b7eddf6d9} 
+Section\+::\+Section (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v1}{ = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}()}, }\item[{const \mbox{\hyperlink{class_vector}{Vector}} \&}]{v2}{ = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}()}}\end{DoxyParamCaption})}
 
 
 
@@ -65,7 +64,7 @@ Definition at line \mbox{\hyperlink{_section_8cpp_source_l00022}{22}} of file \m
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ section\ with\ two\ vectors}}
 \DoxyCodeLine{00024\ \ \ \ \ section[0]\ =\ v1;}
 \DoxyCodeLine{00025\ \ \ \ \ section[1]\ =\ v2;}
@@ -75,11 +74,11 @@ Definition at line \mbox{\hyperlink{_section_8cpp_source_l00022}{22}} of file \m
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_section_ab0d638c91e4f32fcc7d7505d77f9892c}\label{class_section_ab0d638c91e4f32fcc7d7505d77f9892c} 
-\index{Section@{Section}!operator$<$$<$=@{operator$<$$<$=}}
+\Hypertarget{class_section_ab0d638c91e4f32fcc7d7505d77f9892c}\index{Section@{Section}!operator$<$$<$=@{operator$<$$<$=}}
 \index{operator$<$$<$=@{operator$<$$<$=}!Section@{Section}}
 \doxysubsubsection{\texorpdfstring{operator$<$$<$=()}{operator<<=()}}
-{\footnotesize\ttfamily bool Section\+::operator$<$$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_section}{Section}} \&}]{other }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_section_ab0d638c91e4f32fcc7d7505d77f9892c} 
+bool Section\+::operator$<$$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_section}{Section}} \&}]{other}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -110,11 +109,11 @@ Definition at line \mbox{\hyperlink{_section_8cpp_source_l00055}{55}} of file \m
 \DoxyCodeLine{00063\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_section_aa047eb2f2ca15c8be94d327604169e0d}\label{class_section_aa047eb2f2ca15c8be94d327604169e0d} 
-\index{Section@{Section}!operator==@{operator==}}
+\Hypertarget{class_section_aa047eb2f2ca15c8be94d327604169e0d}\index{Section@{Section}!operator==@{operator==}}
 \index{operator==@{operator==}!Section@{Section}}
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
-{\footnotesize\ttfamily bool Section\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_section}{Section}} \&}]{other }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_section_aa047eb2f2ca15c8be94d327604169e0d} 
+bool Section\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_section}{Section}} \&}]{other}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -140,11 +139,11 @@ Definition at line \mbox{\hyperlink{_section_8cpp_source_l00048}{48}} of file \m
 \DoxyCodeLine{00051\ \}}
 
 \end{DoxyCode}
-\Hypertarget{class_section_a835a554a53f6b51ef859a2b82c81aa87}\label{class_section_a835a554a53f6b51ef859a2b82c81aa87} 
-\index{Section@{Section}!PlaneInterSection@{PlaneInterSection}}
+\Hypertarget{class_section_a835a554a53f6b51ef859a2b82c81aa87}\index{Section@{Section}!PlaneInterSection@{PlaneInterSection}}
 \index{PlaneInterSection@{PlaneInterSection}!Section@{Section}}
 \doxysubsubsection{\texorpdfstring{PlaneInterSection()}{PlaneInterSection()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}} Section\+::\+Plane\+Inter\+Section (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane,  }\item[{bool \&}]{is\+Valid\+Point }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_section_a835a554a53f6b51ef859a2b82c81aa87} 
+\mbox{\hyperlink{class_vector}{Vector}} Section\+::\+Plane\+Inter\+Section (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane}{, }\item[{bool \&}]{is\+Valid\+Point}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -190,27 +189,25 @@ References \mbox{\hyperlink{_vector_8cpp_source_l00021}{Vector\+::dot()}}, \mbox
 
 Referenced by \mbox{\hyperlink{main_8cpp_source_l00021}{main()}}, and \mbox{\hyperlink{_facet_8cpp_source_l00011}{Facet\+::\+Plane\+Intersection()}}.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=339pt]{class_section_a835a554a53f6b51ef859a2b82c81aa87_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_section_a835a554a53f6b51ef859a2b82c81aa87_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{class_section_aed7c36f2014294f96a7e3045b1216476}\label{class_section_aed7c36f2014294f96a7e3045b1216476} 
-\index{Section@{Section}!print@{print}}
+\Hypertarget{class_section_aed7c36f2014294f96a7e3045b1216476}\index{Section@{Section}!print@{print}}
 \index{print@{print}!Section@{Section}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void Section\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_section_aed7c36f2014294f96a7e3045b1216476} 
+void Section\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{ = {\ttfamily std\+:\+:cout}}\end{DoxyParamCaption}) const}
 
 
 
@@ -243,8 +240,7 @@ Definition at line \mbox{\hyperlink{_section_8cpp_source_l00029}{29}} of file \m
 
 Referenced by \mbox{\hyperlink{_section_8cpp_source_l00041}{operator$<$$<$()}}.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -255,5 +251,5 @@ Here is the caller graph for this function\+:
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_section_8h}{Section.\+h}}\item 
-C\+:/\+Users/krisz/\+Documents/\+Git\+Hub/\+STL\+\_\+\+Slicer/\+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_section_8cpp}{Section.\+cpp}}\end{DoxyCompactItemize}
+STL\+\_\+\+SLICER/include/\mbox{\hyperlink{_section_8h}{Section.\+h}}\item 
+STL\+\_\+\+SLICER/src/\mbox{\hyperlink{_section_8cpp}{Section.\+cpp}}\end{DoxyCompactItemize}

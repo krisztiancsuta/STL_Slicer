@@ -5,7 +5,8 @@
 #include "Section.h"
 #include "Vector.h"
 #include "Facet.h"
-
+#include <fstream>
+#include <string>
 /**
  * @brief The Gcode class provides functions for generating G-code instructions.
  */
@@ -18,7 +19,9 @@ public:
      * @param ofs The output stream to write the G-code to.
      * @param sections The vector of sections to generate G-code from.
      */
+    static void StartGcode(std::ofstream& gcode);
     static void WriteGcode(std::ofstream& ofs, std::vector<Section> const& sections);
+    static void CloseGcode(std::ofstream& gcode);
 
     /**
      * @brief Sorts the sections in order to create a continuous path for the printer.
